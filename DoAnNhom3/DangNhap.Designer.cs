@@ -121,6 +121,7 @@
             btquenmatkhau.TabIndex = 10;
             btquenmatkhau.Text = "Quên mật khẩu";
             btquenmatkhau.UseVisualStyleBackColor = false;
+            btquenmatkhau.Click += btquenmatkhau_Click;
             // 
             // panel1
             // 

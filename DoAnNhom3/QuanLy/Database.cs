@@ -41,5 +41,19 @@ namespace DoAnNhom3.QuanLy
                 }
             }
         }
+        public static int Execute(string query, SqlParameter[] parameters)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                if (parameters != null)
+                    cmd.Parameters.AddRange(parameters);
+                return cmd.ExecuteNonQuery();
+            }
+        }
+
+
+
     }
 }

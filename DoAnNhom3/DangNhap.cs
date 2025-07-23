@@ -70,7 +70,7 @@ namespace DoAnNhom3
                 {
                     KhachHangDangNhap K = new KhachHangDangNhap();
                     K.Show();
-                }    
+                }
 
             }
             else
@@ -84,6 +84,12 @@ namespace DoAnNhom3
             //this.Hide();
             DangKiTaiKhoan DK = new DangKiTaiKhoan();
             DK.Show();
+        }
+
+        private void btquenmatkhau_Click(object sender, EventArgs e)
+        {
+            QuenMatKhau QMK = new QuenMatKhau();
+            QMK.Show();
         }
     }
 }
