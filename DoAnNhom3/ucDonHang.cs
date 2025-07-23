@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DoAnNhom3.Model;
 
@@ -13,46 +7,67 @@ namespace DoAnNhom3
 {
     public partial class ucDonHang : UserControl
     {
-        public ucDonHang()
+        private List<MonAn> gioHang = new List<MonAn>();
+
+        public ucDonHang(MonAn monAnDuocChon)
         {
             InitializeComponent();
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ucDonHang_Load(object sender, EventArgs e)
-        {
-            flpgiohang.Controls.Clear();
-            foreach (var mon in GioHangService.DanhSachMon)
+            if (monAnDuocChon != null)
             {
-                themdonhang uc = new themdonhang();
-                uc.SetData(mon.TenMon, mon.GiaTien, mon.HinhAnh); // Tạo hàm SetData phù hợp
-                flpgiohang.Controls.Add(uc);
+                gioHang.Add(monAnDuocChon);
+                HienThiGioHang();
             }
         }
-        public void ThemDonHangVaoGio(string tenMon, decimal giaTien, Image hinhAnh)
+
+        private void HienThiGioHang()
         {
-            themdonhang uc = new themdonhang();
-            uc.SetData(tenMon, giaTien, hinhAnh);
-            flpgiohang.Controls.Add(uc);
+            flpgiohang.Controls.Clear();
+            foreach (var mon in gioHang)
+            {
+                Panel panel = new Panel { Width = 400, Height = 40 };
+
+                Label lbl = new Label
+                {
+                    Text = $"{mon.TenMon} - {mon.GiaTien:N0} đ",
+                    Width = 200,
+                    Location = new Point(5, 10)
+                };
+
+                NumericUpDown numSL = new NumericUpDown
+                {
+                    Minimum = 1,
+                    Value = 1,
+                    Width = 60,
+                    Location = new Point(220, 7),
+                    Tag = mon
+                };
+
+                panel.Controls.Add(lbl);
+                panel.Controls.Add(numSL);
+                flpgiohang.Controls.Add(panel);
+            }
         }
 
         private void btthanhtoanKH_Click(object sender, EventArgs e)
         {
+            decimal tongTien = 0;
 
-        }
-        public event EventHandler QuayLaiClicked;
-        private void btquaylai_Click(object sender, EventArgs e)
-        {
-            var parent = this.FindForm() as KhachHangDangNhap;
-            if (parent != null)
+            foreach (Control item in flpgiohang.Controls)
             {
-                parent.HienMenu(); // gọi hàm để hiển thị menu
+                if (item is Panel panel)
+                {
+                    foreach (Control ctrl in panel.Controls)
+                    {
+                        if (ctrl is NumericUpDown num && num.Tag is MonAn mon)
+                        {
+                            tongTien += mon.GiaTien * num.Value;
+                        }
+                    }
+                }
             }
+
+            MessageBox.Show($"Tổng tiền thanh toán: {tongTien:N0} đ", "Thông báo");
         }
-        
     }
+
 }

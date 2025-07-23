@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            btquaylai = new Button();
+            btthemvaogiohang = new Button();
             panel1 = new Panel();
             flpgiohang = new FlowLayoutPanel();
             btthanhtoanKH = new Button();
@@ -46,22 +46,22 @@
             label1.TabIndex = 3;
             label1.Text = "Giỏ hàng";
             // 
-            // btquaylai
+            // btthemvaogiohang
             // 
-            btquaylai.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btquaylai.Location = new Point(119, 335);
-            btquaylai.Name = "btquaylai";
-            btquaylai.Size = new Size(103, 56);
-            btquaylai.TabIndex = 34;
-            btquaylai.Text = "Quay lại menu";
-            btquaylai.UseVisualStyleBackColor = true;
-            btquaylai.Click += btquaylai_Click;
+            btthemvaogiohang.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btthemvaogiohang.Location = new Point(119, 335);
+            btthemvaogiohang.Name = "btthemvaogiohang";
+            btthemvaogiohang.Size = new Size(103, 56);
+            btthemvaogiohang.TabIndex = 34;
+            btthemvaogiohang.Text = "Thêm vào giỏ hàng";
+            btthemvaogiohang.UseVisualStyleBackColor = true;
+
             // 
             // panel1
             // 
             panel1.Controls.Add(flpgiohang);
             panel1.Controls.Add(btthanhtoanKH);
-            panel1.Controls.Add(btquaylai);
+            panel1.Controls.Add(btthemvaogiohang);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(104, 37);
             panel1.Name = "panel1";
@@ -71,7 +71,6 @@
             // flpgiohang
             // 
             flpgiohang.AutoSize = true;
-            flpgiohang.BackColor = Color.SkyBlue;
             flpgiohang.FlowDirection = FlowDirection.TopDown;
             flpgiohang.Location = new Point(56, 79);
             flpgiohang.Name = "flpgiohang";
@@ -87,7 +86,6 @@
             btthanhtoanKH.TabIndex = 39;
             btthanhtoanKH.Text = "Thanh toán";
             btthanhtoanKH.UseVisualStyleBackColor = true;
-            btthanhtoanKH.Click += btthanhtoanKH_Click;
             // 
             // ucDonHang
             // 
@@ -98,7 +96,6 @@
             Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Name = "ucDonHang";
             Size = new Size(692, 488);
-            Load += ucDonHang_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -108,7 +105,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btquaylai;
+        private System.Windows.Forms.Button btthemvaogiohang;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btthanhtoanKH;
         private System.Windows.Forms.FlowLayoutPanel flpgiohang;
