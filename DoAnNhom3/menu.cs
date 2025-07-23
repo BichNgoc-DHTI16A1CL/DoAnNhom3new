@@ -78,5 +78,12 @@ namespace DoAnNhom3
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            DangNhap DN = new DangNhap();
+            DN.Show();
+        }
     }
 }

@@ -73,7 +73,7 @@
             btqlitaikhoanKH.TabIndex = 7;
             btqlitaikhoanKH.Text = "Tài khoản";
             btqlitaikhoanKH.UseVisualStyleBackColor = true;
-            btqlitaikhoanKH.Click += btqlitaikhoanKH_Click;
+            //btqlitaikhoanKH.Click += btqlitaikhoanKH_Click;
             // 
             // btmenuKH
             // 
@@ -127,7 +127,7 @@
             Margin = new Padding(4, 3, 4, 3);
             Name = "KhachHangDangNhap";
             Text = "KhachHangDangNhap";
-            Load += KhachHangDangNhap_Load;
+            //Load += KhachHangDangNhap_Load;
             panel1.ResumeLayout(false);
             panelkhachhang.ResumeLayout(false);
             panelkhachhang.PerformLayout();

@@ -35,8 +35,8 @@
             btqldanhmuc = new Button();
             btqlkhachhang = new Button();
             panel1 = new Panel();
-            button1 = new Button();
             panelMain = new Panel();
+            button2 = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -113,7 +113,7 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(button2);
             panel1.Controls.Add(btqlnhanvien);
             panel1.Controls.Add(btqlkhachhang);
             panel1.Controls.Add(btqldanhmuc);
@@ -126,22 +126,24 @@
             panel1.Size = new Size(204, 605);
             panel1.TabIndex = 6;
             // 
-            // button1
-            // 
-            button1.Location = new Point(72, 398);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 6;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
             // panelMain
             // 
             panelMain.Location = new Point(213, 12);
             panelMain.Name = "panelMain";
             panelMain.Size = new Size(830, 590);
             panelMain.TabIndex = 7;
+            // 
+            // button2
+            // 
+            button2.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button2.Location = new Point(11, 479);
+            button2.Margin = new Padding(4, 3, 4, 3);
+            button2.Name = "button2";
+            button2.Size = new Size(175, 52);
+            button2.TabIndex = 7;
+            button2.Text = "Đăng Xuất";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // Menu
             // 
@@ -168,6 +170,6 @@
         private System.Windows.Forms.Button btqlkhachhang;
         private System.Windows.Forms.Panel panel1;
         public Panel panelMain;
-        private Button button1;
+        private Button button2;
     }
 }

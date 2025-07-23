@@ -14,6 +14,7 @@ namespace DoAnNhom3
 {
     public partial class KhachHangDangNhap : Form
     {
+        /*
         public KhachHangDangNhap()
         {
             InitializeComponent();
@@ -71,7 +72,7 @@ namespace DoAnNhom3
                     ucDonHang donHang = new ucDonHang();
                     panelkhachhang.Controls.Clear();
                     panelkhachhang.Controls.Add(donHang);
-                };*/
+                };
 
                 flowLayoutPanel1.Controls.Add(mon);
 
@@ -109,5 +110,6 @@ namespace DoAnNhom3
         {
 
         }
+        */
     }
 }
