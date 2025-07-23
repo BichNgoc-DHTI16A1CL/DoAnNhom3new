@@ -35,8 +35,8 @@
             btqldanhmuc = new Button();
             btqlkhachhang = new Button();
             panel1 = new Panel();
-            panelMain = new Panel();
             button2 = new Button();
+            panelMain = new Panel();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -50,6 +50,7 @@
             btqlnhanvien.TabIndex = 0;
             btqlnhanvien.Text = "Quản lí nhân viên";
             btqlnhanvien.UseVisualStyleBackColor = true;
+            btqlnhanvien.Click += btqlnhanvien_Click;
             // 
             // btbaocao
             // 
@@ -126,13 +127,6 @@
             panel1.Size = new Size(204, 605);
             panel1.TabIndex = 6;
             // 
-            // panelMain
-            // 
-            panelMain.Location = new Point(213, 12);
-            panelMain.Name = "panelMain";
-            panelMain.Size = new Size(830, 590);
-            panelMain.TabIndex = 7;
-            // 
             // button2
             // 
             button2.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -144,6 +138,13 @@
             button2.Text = "Đăng Xuất";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
+            // 
+            // panelMain
+            // 
+            panelMain.Location = new Point(213, 12);
+            panelMain.Name = "panelMain";
+            panelMain.Size = new Size(830, 590);
+            panelMain.TabIndex = 7;
             // 
             // Menu
             // 
