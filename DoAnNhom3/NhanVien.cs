@@ -206,6 +206,7 @@ namespace DoAnNhom3
 
                 try
                 {
+                    // Lưu hóa đơn
                     SqlCommand cmd1 = new SqlCommand(query1, conn, tran);
                     cmd1.Parameters.AddWithValue("@MaHoaDon", maHD);
                     cmd1.Parameters.AddWithValue("@NgayLap", DateTime.Now);
@@ -213,6 +214,7 @@ namespace DoAnNhom3
                     cmd1.Parameters.AddWithValue("@MaNV", "NV01");
                     await cmd1.ExecuteNonQueryAsync();
 
+                    // Lưu chi tiết hóa đơn
                     foreach (var mon in danhSachMon)
                     {
                         SqlCommand cmd2 = new SqlCommand(query2, conn, tran);
@@ -224,10 +226,14 @@ namespace DoAnNhom3
                         await cmd2.ExecuteNonQueryAsync();
                     }
 
+                    // Commit trước khi thêm báo cáo để tránh deadlock
                     tran.Commit();
                     MessageBox.Show("Đặt hàng thành công!");
 
+                    // Gọi hàm thêm báo cáo ngày
                     await ThemBaoCaoNgayAsync(danhSachMon, DateTime.Now);
+
+                    // Gọi event hoàn tất
                     hoaDonControl?.GoiSuKienDatHangThanhCong();
                 }
                 catch (Exception ex)
@@ -238,32 +244,36 @@ namespace DoAnNhom3
             }
         }
 
+
         private async Task ThemBaoCaoNgayAsync(List<MonAn> danhSachMon, DateTime ngay)
         {
-            using (var conn = new SqlConnection(connectionString))
+            string query = @"
+        INSERT INTO BaoCaoNgay (MaBaoCaoNgay, Ngay, MaMon, DonViTinh, SoLuong, DoanhThuNgay)
+        VALUES (@MaBaoCaoNgay, @Ngay, @MaMon, @DonViTinh, @SoLuong, @DoanhThuNgay)";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 await conn.OpenAsync();
 
                 foreach (var mon in danhSachMon)
                 {
-                    string query = @"
-                        INSERT INTO BaoCaoNgay (MaBaoCaoNgay, Ngay, MaMon, DonViTinh, SoLuong, DoanhThuNgay)
-                        VALUES (@MaBC, @Ngay, @MaMon, @DVT, @SoLuong, @DoanhThu)";
+                    string maBaoCao = "BCN" + DateTime.Now.Ticks.ToString().Substring(10);
 
-                    using (var cmd = new SqlCommand(query, conn))
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        string maBC = "BC" + Guid.NewGuid().ToString("N").Substring(0, 10);
-                        cmd.Parameters.AddWithValue("@MaBC", maBC);
+                        cmd.Parameters.AddWithValue("@MaBaoCaoNgay", maBaoCao);
                         cmd.Parameters.AddWithValue("@Ngay", ngay.Date);
                         cmd.Parameters.AddWithValue("@MaMon", mon.MaMon);
-                        cmd.Parameters.AddWithValue("@DVT", "Phần");
+                        cmd.Parameters.AddWithValue("@DonViTinh", "Phần"); // hoặc lấy từ DB nếu có
                         cmd.Parameters.AddWithValue("@SoLuong", mon.SoLuong);
-                        cmd.Parameters.AddWithValue("@DoanhThu", mon.GiaTien * mon.SoLuong);
+                        cmd.Parameters.AddWithValue("@DoanhThuNgay", mon.SoLuong * mon.GiaTien);
 
                         await cmd.ExecuteNonQueryAsync();
                     }
                 }
             }
         }
+
     }
 }
+
