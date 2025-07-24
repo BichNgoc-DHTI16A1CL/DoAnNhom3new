@@ -1,127 +1,147 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using DoAnNhom3.Model;
-using DoAnNhom3.QuanLy;
 
 namespace DoAnNhom3
 {
     public partial class ucDonHang : UserControl
     {
-        private KhachHangDangNhap parentForm;
         private List<MonAn> gioHang = new List<MonAn>();
 
-        /*public ucDonHang(MonAn monAnDuocChon)
-        {
-            InitializeComponent();
-            this.Load += ucDonHang_Load;
-            if (monAnDuocChon != null)
-            {
-                var item = new themdonhang();
-                item.SetData(monAnDuocChon.TenMon, monAnDuocChon.GiaTien, monAnDuocChon.HinhAnh);
-                flpgiohang.Controls.Add(item);
-            }
-
-        }*/
+        public event Action QuayVeClicked;
+        public event Action<List<MonAn>> ThanhToanClicked;
 
         public ucDonHang()
         {
             InitializeComponent();
-            
+
+            btQuayVe.Click += (s, e) => QuayVeClicked?.Invoke();
+            btthanhtoanKH.Click += btthanhtoanKH_Click;
+
+            // Cấu hình FlowLayoutPanel
+            flpgiohang.FlowDirection = FlowDirection.TopDown;
+            flpgiohang.WrapContents = false;
+            flpgiohang.AutoScroll = true;
         }
 
-        /*private void HienThiGioHang()
+        public void AddItem(MonAn monAn)
+        {
+            var existing = gioHang.FirstOrDefault(m => m.MaMon == monAn.MaMon);
+            if (existing != null)
+            {
+                existing.SoLuong += monAn.SoLuong;
+            }
+            else
+            {
+                gioHang.Add(new MonAn
+                {
+                    MaMon = monAn.MaMon,
+                    TenMon = monAn.TenMon,
+                    GiaTien = monAn.GiaTien,
+                    SoLuong = monAn.SoLuong,
+                    HinhAnh = monAn.HinhAnh
+                });
+            }
+
+            HienThiGioHang();
+        }
+
+        private void HienThiGioHang()
         {
             flpgiohang.Controls.Clear();
+
             foreach (var mon in gioHang)
             {
-                Panel panel = new Panel { Width = 400, Height = 40 };
-
-                Label lbl = new Label
+                Panel panel = new Panel
                 {
-                    Text = $"{mon.TenMon} - {mon.GiaTien:N0} đ",
-                    Width = 200,
-                    Location = new Point(5, 10)
+                    Width = 500,
+                    Height = 100,
+                    BorderStyle = BorderStyle.FixedSingle,
+                    Margin = new Padding(5),
+                    Tag = mon
+                };
+
+                PictureBox pic = new PictureBox
+                {
+                    Size = new Size(100, 80),
+                    Location = new Point(5, 10),
+                    SizeMode = PictureBoxSizeMode.StretchImage
+                };
+
+                string path = Path.Combine(Application.StartupPath, "HinhAnh", mon.HinhAnh);
+                if (File.Exists(path))
+                {
+                    using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read))
+                    {
+                        pic.Image = Image.FromStream(stream);
+                    }
+                }
+
+                TextBox txbTen = new TextBox
+                {
+                    Text = mon.TenMon,
+                    Location = new Point(110, 10),
+                    Width = 150,
+                    ReadOnly = true
+                };
+
+                TextBox txbGia = new TextBox
+                {
+                    Text = mon.GiaTien.ToString("N0") + " đ",
+                    Location = new Point(110, 40),
+                    Width = 150,
+                    ReadOnly = true
                 };
 
                 NumericUpDown numSL = new NumericUpDown
                 {
                     Minimum = 1,
-                    Value = 1,
-                    Width = 60,
-                    Location = new Point(220, 7),
-                    Tag = mon
+                    Value = mon.SoLuong,
+                    Location = new Point(110, 70),
+                    Width = 80
                 };
 
-                panel.Controls.Add(lbl);
+                numSL.ValueChanged += (s, e) =>
+                {
+                    mon.SoLuong = (int)numSL.Value;
+                };
+
+                panel.Controls.Add(pic);
+                panel.Controls.Add(txbTen);
+                panel.Controls.Add(txbGia);
                 panel.Controls.Add(numSL);
+
                 flpgiohang.Controls.Add(panel);
             }
-        }*/
+        }
 
-        /*private void btthanhtoanKH_Click(object sender, EventArgs e)
+        private void btthanhtoanKH_Click(object sender, EventArgs e)
         {
-            decimal tongTien = 0;
-
-            foreach (Control item in flpgiohang.Controls)
+            foreach (Control panel in flpgiohang.Controls)
             {
-                if (item is Panel panel)
+                if (panel is Panel p && p.Tag is MonAn mon)
                 {
-                    foreach (Control ctrl in panel.Controls)
+                    foreach (Control ctrl in p.Controls)
                     {
-                        if (ctrl is NumericUpDown num && num.Tag is MonAn mon)
+                        if (ctrl is NumericUpDown num)
                         {
-                            tongTien += mon.GiaTien * num.Value;
+                            mon.SoLuong = (int)num.Value;
                         }
                     }
                 }
             }
 
-            MessageBox.Show($"Tổng tiền thanh toán: {tongTien:N0} đ", "Thông báo");
-        }*/
-        public ucDonHang(List<MonAn> ds, KhachHangDangNhap cha)
-        {
-            InitializeComponent();
-            parentForm = cha;
-            flpgiohang.Controls.Clear();
-            foreach (var mon in ds)
+            if (gioHang.Count == 0)
             {
-                var item = new themdonhang();
-                item.SetData(mon.TenMon, mon.GiaTien, mon.HinhAnh, mon.SoLuong);
-                flpgiohang.Controls.Add(item);
+                MessageBox.Show("Giỏ hàng đang trống!");
+                return;
             }
-        }
-        public ucDonHang(List<MonAn> ds)
-        {
-            InitializeComponent();
-            flpgiohang.Controls.Clear();
-            foreach (var mon in ds)
-            {
-                var itemUc = new themdonhang();
-                itemUc.SetData(mon.TenMon, mon.GiaTien, mon.HinhAnh, mon.SoLuong);
-                flpgiohang.Controls.Add(itemUc);
-            }
-        }
-        private void ucDonHang_Load(object sender, EventArgs e)
-        {
-            flpgiohang.Controls.Clear();
-            foreach (var mon in GioHangService.DanhSachMon)
-            {
-                var itemUc = new themdonhang();
-                itemUc.SetData(mon.TenMon, mon.GiaTien, mon.HinhAnh, mon.SoLuong);
-                flpgiohang.Controls.Add(itemUc);
-            }
-        }
-        private void btquaylai_Click(object sender, EventArgs e)
-        {
-            parentForm.panelkhachhang.Controls.Clear();
-            //parentForm.LoadMenu();
-        }
 
-        private void btthanhtoanKH_Click_1(object sender, EventArgs e)
-        {
-
+            ThanhToanClicked?.Invoke(new List<MonAn>(gioHang));
         }
     }
-
 }
