@@ -32,12 +32,13 @@
             panel1 = new Panel();
             labelgiohang = new Label();
             panel2 = new Panel();
+            lblTongTien = new Label();
             btthanhtoanKH = new Button();
-            btthemvaogiohang = new Button();
-            flpGioHang = new FlowLayoutPanel();
+            dataGridView1 = new DataGridView();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -47,7 +48,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(panel1, 1, 0);
             tableLayoutPanel1.Controls.Add(panel2, 1, 2);
-            tableLayoutPanel1.Controls.Add(flpGioHang, 1, 1);
+            tableLayoutPanel1.Controls.Add(dataGridView1, 1, 1);
             tableLayoutPanel1.Location = new Point(67, 49);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 3;
@@ -78,17 +79,26 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(lblTongTien);
             panel2.Controls.Add(btthanhtoanKH);
-            panel2.Controls.Add(btthemvaogiohang);
             panel2.Location = new Point(3, 340);
             panel2.Name = "panel2";
             panel2.Size = new Size(547, 39);
             panel2.TabIndex = 1;
             // 
+            // lblTongTien
+            // 
+            lblTongTien.AutoSize = true;
+            lblTongTien.Location = new Point(392, 13);
+            lblTongTien.Name = "lblTongTien";
+            lblTongTien.Size = new Size(38, 15);
+            lblTongTien.TabIndex = 41;
+            lblTongTien.Text = "label2";
+            // 
             // btthanhtoanKH
             // 
             btthanhtoanKH.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btthanhtoanKH.Location = new Point(293, -1);
+            btthanhtoanKH.Location = new Point(190, 0);
             btthanhtoanKH.Name = "btthanhtoanKH";
             btthanhtoanKH.Size = new Size(133, 39);
             btthanhtoanKH.TabIndex = 40;
@@ -96,23 +106,13 @@
             btthanhtoanKH.UseVisualStyleBackColor = true;
             btthanhtoanKH.Click += btthanhtoanKH_Click;
             // 
-            // btthemvaogiohang
+            // dataGridView1
             // 
-            btthemvaogiohang.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btthemvaogiohang.Location = new Point(113, -1);
-            btthemvaogiohang.Name = "btthemvaogiohang";
-            btthemvaogiohang.Size = new Size(135, 39);
-            btthemvaogiohang.TabIndex = 35;
-            btthemvaogiohang.Text = "Quay lại menu";
-            btthemvaogiohang.UseVisualStyleBackColor = true;
-            btthemvaogiohang.Click += btthemvaogiohang_Click;
-            // 
-            // flpGioHang
-            // 
-            flpGioHang.Location = new Point(3, 42);
-            flpGioHang.Name = "flpGioHang";
-            flpGioHang.Size = new Size(547, 291);
-            flpGioHang.TabIndex = 2;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(3, 42);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(547, 292);
+            dataGridView1.TabIndex = 2;
             // 
             // uctaoDH
             // 
@@ -125,6 +125,8 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -134,9 +136,9 @@
         private Panel panel1;
         private Label label1;
         private Panel panel2;
-        private FlowLayoutPanel flpGioHang;
         private Label labelgiohang;
-        private Button btthemvaogiohang;
         private Button btthanhtoanKH;
+        private DataGridView dataGridView1;
+        private Label lblTongTien;
     }
 }

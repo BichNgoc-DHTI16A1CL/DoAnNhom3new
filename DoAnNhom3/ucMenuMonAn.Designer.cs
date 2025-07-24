@@ -29,15 +29,29 @@
         private void InitializeComponent()
         {
             flpgiohang = new FlowLayoutPanel();
+            flpMenu = new FlowLayoutPanel();
             label1 = new Label();
+            flpgiohang.SuspendLayout();
             SuspendLayout();
             // 
             // flpgiohang
             // 
+            flpgiohang.AutoScroll = true;
+            flpgiohang.Controls.Add(flpMenu);
             flpgiohang.Location = new Point(0, 75);
             flpgiohang.Name = "flpgiohang";
             flpgiohang.Size = new Size(807, 488);
             flpgiohang.TabIndex = 0;
+            flpgiohang.Paint += flpgiohang_Paint;
+            // 
+            // flpMenu
+            // 
+            flpMenu.AutoScroll = true;
+            flpMenu.Dock = DockStyle.Fill;
+            flpMenu.Location = new Point(3, 3);
+            flpMenu.Name = "flpMenu";
+            flpMenu.Size = new Size(754, 0);
+            flpMenu.TabIndex = 0;
             // 
             // label1
             // 
@@ -57,7 +71,7 @@
             Controls.Add(flpgiohang);
             Name = "ucMenuMonAn";
             Size = new Size(807, 563);
-            //Load += ucMenuMonAn_Load;
+            flpgiohang.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -66,5 +80,6 @@
 
         private FlowLayoutPanel flpgiohang;
         private Label label1;
+        private FlowLayoutPanel flpMenu;
     }
 }

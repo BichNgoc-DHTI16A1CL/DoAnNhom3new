@@ -30,12 +30,10 @@
         {
             btqlnhanvien = new Button();
             btbaocao = new Button();
-            btkhuyenmai = new Button();
             btkhonguyenlieu = new Button();
             btqldanhmuc = new Button();
             btqlkhachhang = new Button();
             panel1 = new Panel();
-        //    button2 = new Button();
             button2 = new Button();
             panelMain = new Panel();
             panel1.SuspendLayout();
@@ -56,7 +54,7 @@
             // btbaocao
             // 
             btbaocao.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btbaocao.Location = new Point(13, 342);
+            btbaocao.Location = new Point(13, 248);
             btbaocao.Margin = new Padding(4, 3, 4, 3);
             btbaocao.Name = "btbaocao";
             btbaocao.Size = new Size(175, 52);
@@ -65,21 +63,10 @@
             btbaocao.UseVisualStyleBackColor = true;
             btbaocao.Click += btbaocao_Click;
             // 
-            // btkhuyenmai
-            // 
-            btkhuyenmai.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btkhuyenmai.Location = new Point(11, 190);
-            btkhuyenmai.Margin = new Padding(4, 3, 4, 3);
-            btkhuyenmai.Name = "btkhuyenmai";
-            btkhuyenmai.Size = new Size(177, 52);
-            btkhuyenmai.TabIndex = 2;
-            btkhuyenmai.Text = "Khuyến mãi";
-            btkhuyenmai.UseVisualStyleBackColor = true;
-            // 
             // btkhonguyenlieu
             // 
             btkhonguyenlieu.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btkhonguyenlieu.Location = new Point(11, 248);
+            btkhonguyenlieu.Location = new Point(13, 190);
             btkhonguyenlieu.Margin = new Padding(4, 3, 4, 3);
             btkhonguyenlieu.Name = "btkhonguyenlieu";
             btkhonguyenlieu.Size = new Size(175, 52);
@@ -115,13 +102,11 @@
             // 
             // panel1
             // 
-        //    panel1.Controls.Add(button2);
             panel1.Controls.Add(button2);
             panel1.Controls.Add(btqlnhanvien);
             panel1.Controls.Add(btqlkhachhang);
             panel1.Controls.Add(btqldanhmuc);
             panel1.Controls.Add(btbaocao);
-            panel1.Controls.Add(btkhuyenmai);
             panel1.Controls.Add(btkhonguyenlieu);
             panel1.Location = new Point(2, 125);
             panel1.Margin = new Padding(4, 3, 4, 3);
@@ -132,7 +117,7 @@
             // button2
             // 
             button2.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.Location = new Point(11, 479);
+            button2.Location = new Point(13, 381);
             button2.Margin = new Padding(4, 3, 4, 3);
             button2.Name = "button2";
             button2.Size = new Size(175, 52);
@@ -167,7 +152,6 @@
 
         private System.Windows.Forms.Button btqlnhanvien;
         private System.Windows.Forms.Button btbaocao;
-        private System.Windows.Forms.Button btkhuyenmai;
         private System.Windows.Forms.Button btkhonguyenlieu;
         private System.Windows.Forms.Button btqldanhmuc;
         private System.Windows.Forms.Button btqlkhachhang;

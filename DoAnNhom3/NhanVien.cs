@@ -195,13 +195,14 @@ namespace DoAnNhom3
 
         private void btqldonhang_Click(object sender, EventArgs e)
         {
-            ucXemDonHang xemUC = new ucXemDonHang
+            /*ucXemDonHang xemUC = new ucXemDonHang
             {
                 Dock = DockStyle.Fill
             };
 
             panelMain.Controls.Clear();
             panelMain.Controls.Add(xemUC);
+            */
         }
     }
 }

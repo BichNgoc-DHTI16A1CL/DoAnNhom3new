@@ -30,17 +30,18 @@
         {
             lbtenmonan = new Label();
             lbgia = new Label();
-            ptbanhmonan = new PictureBox();
-            btgiohang = new Button();
             btmuangay = new Button();
-            ((System.ComponentModel.ISupportInitialize)ptbanhmonan).BeginInit();
+            pictureBox1 = new PictureBox();
+            numericUpDown1 = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // lbtenmonan
             // 
             lbtenmonan.AutoSize = true;
             lbtenmonan.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbtenmonan.Location = new Point(64, 141);
+            lbtenmonan.Location = new Point(66, 161);
             lbtenmonan.Margin = new Padding(4, 0, 4, 0);
             lbtenmonan.Name = "lbtenmonan";
             lbtenmonan.Size = new Size(45, 19);
@@ -51,73 +52,66 @@
             // 
             lbgia.AutoSize = true;
             lbgia.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbgia.Location = new Point(64, 173);
+            lbgia.Location = new Point(66, 182);
             lbgia.Margin = new Padding(4, 0, 4, 0);
             lbgia.Name = "lbgia";
             lbgia.Size = new Size(45, 19);
             lbgia.TabIndex = 2;
             lbgia.Text = "label2";
             // 
-            // ptbanhmonan
-            // 
-            ptbanhmonan.Location = new Point(0, 0);
-            ptbanhmonan.Margin = new Padding(4, 3, 4, 3);
-            ptbanhmonan.Name = "ptbanhmonan";
-            ptbanhmonan.Size = new Size(178, 127);
-            ptbanhmonan.SizeMode = PictureBoxSizeMode.StretchImage;
-            ptbanhmonan.TabIndex = 0;
-            ptbanhmonan.TabStop = false;
-            // 
-            // btgiohang
-            // 
-            btgiohang.BackgroundImage = Properties.Resources.giohang;
-            btgiohang.BackgroundImageLayout = ImageLayout.Stretch;
-            btgiohang.Location = new Point(124, 198);
-            btgiohang.Margin = new Padding(4, 3, 4, 3);
-            btgiohang.Name = "btgiohang";
-            btgiohang.Size = new Size(41, 36);
-            btgiohang.TabIndex = 22;
-            btgiohang.UseVisualStyleBackColor = true;
-            btgiohang.Click += btgiohang_Click;
-            // 
             // btmuangay
             // 
             btmuangay.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btmuangay.Location = new Point(8, 198);
+            btmuangay.Location = new Point(6, 233);
             btmuangay.Margin = new Padding(4, 3, 4, 3);
             btmuangay.Name = "btmuangay";
-            btmuangay.Size = new Size(108, 36);
+            btmuangay.Size = new Size(166, 36);
             btmuangay.TabIndex = 21;
-            btmuangay.Text = "Mua ngay";
+            btmuangay.Text = "Thêm vào giỏ hàng";
             btmuangay.UseVisualStyleBackColor = true;
             btmuangay.Click += btmuangay_Click_1;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(8, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(157, 155);
+            pictureBox1.TabIndex = 23;
+            pictureBox1.TabStop = false;
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(66, 204);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(61, 23);
+            numericUpDown1.TabIndex = 25;
+            numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // ucMonAn
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            Controls.Add(btgiohang);
+            Controls.Add(numericUpDown1);
+            Controls.Add(pictureBox1);
             Controls.Add(btmuangay);
             Controls.Add(lbgia);
             Controls.Add(lbtenmonan);
-            Controls.Add(ptbanhmonan);
             Margin = new Padding(4, 3, 4, 3);
             Name = "ucMonAn";
-            Size = new Size(178, 241);
-            Load += ucMonAn_Load;
-            ((System.ComponentModel.ISupportInitialize)ptbanhmonan).EndInit();
+            Size = new Size(175, 276);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox ptbanhmonan;
         private System.Windows.Forms.Label lbtenmonan;
         private System.Windows.Forms.Label lbgia;
-        private System.Windows.Forms.Button btgiohang;
         private System.Windows.Forms.Button btmuangay;
+        private PictureBox pictureBox1;
+        private NumericUpDown numericUpDown1;
     }
 }
