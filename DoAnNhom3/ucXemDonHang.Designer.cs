@@ -49,6 +49,7 @@
             dgvDonHang.Name = "dgvDonHang";
             dgvDonHang.Size = new Size(624, 233);
             dgvDonHang.TabIndex = 1;
+            dgvDonHang.CellContentClick += dgvDonHang_CellContentClick;
             // 
             // ucXemDonHang
             // 

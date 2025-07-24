@@ -13,7 +13,7 @@ namespace DoAnNhom3
 {
     public partial class ucXemDonHang : UserControl
     {
-        private string connectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=QuanLyBanHangOnline;Integrated Security=True;Trust Server Certificate=True";
+        private string connectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=QuanLyBanHangOnline1;Integrated Security=True;Trust Server Certificate=True";
 
         public ucXemDonHang()
         {
@@ -48,6 +48,11 @@ namespace DoAnNhom3
             {
                 MessageBox.Show("Lỗi khi tải đơn hàng: " + ex.Message);
             }
+        }
+
+        private void dgvDonHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

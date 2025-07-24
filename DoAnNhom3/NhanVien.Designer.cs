@@ -59,18 +59,17 @@ namespace DoAnNhom3
             panel1.Controls.Add(bttaodonhang);
             panel1.Controls.Add(btqldonhang);
             panel1.Controls.Add(btqldanhmuc);
-            panel1.Dock = DockStyle.Left;
-            panel1.Location = new Point(0, 0);
+            panel1.Location = new Point(3, 128);
             panel1.Margin = new Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(226, 614);
+            panel1.Size = new Size(226, 483);
             panel1.TabIndex = 0;
             // 
             // button3
             // 
             button3.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button3.ForeColor = Color.Black;
-            button3.Location = new Point(37, 133);
+            button3.Location = new Point(66, 232);
             button3.Margin = new Padding(4, 3, 4, 3);
             button3.Name = "button3";
             button3.Size = new Size(148, 52);
@@ -81,7 +80,7 @@ namespace DoAnNhom3
             // bttaodonhang
             // 
             bttaodonhang.Font = new Font("Times New Roman", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            bttaodonhang.Location = new Point(37, 214);
+            bttaodonhang.Location = new Point(55, 333);
             bttaodonhang.Margin = new Padding(4, 3, 4, 3);
             bttaodonhang.Name = "bttaodonhang";
             bttaodonhang.Size = new Size(159, 38);
@@ -93,7 +92,7 @@ namespace DoAnNhom3
             // 
             btqldonhang.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btqldonhang.ForeColor = Color.Black;
-            btqldonhang.Location = new Point(37, 61);
+            btqldonhang.Location = new Point(66, 120);
             btqldonhang.Margin = new Padding(4, 3, 4, 3);
             btqldonhang.Name = "btqldonhang";
             btqldonhang.Size = new Size(148, 66);
@@ -106,7 +105,7 @@ namespace DoAnNhom3
             // 
             btqldanhmuc.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btqldanhmuc.ForeColor = Color.Black;
-            btqldanhmuc.Location = new Point(37, 3);
+            btqldanhmuc.Location = new Point(66, 19);
             btqldanhmuc.Margin = new Padding(4, 3, 4, 3);
             btqldanhmuc.Name = "btqldanhmuc";
             btqldanhmuc.Size = new Size(148, 52);
@@ -245,11 +244,10 @@ namespace DoAnNhom3
             panelMain.Controls.Add(label2);
             panelMain.Controls.Add(dgvmenuNV);
             panelMain.Controls.Add(button4);
-            panelMain.Dock = DockStyle.Right;
-            panelMain.Location = new Point(225, 0);
+            panelMain.Location = new Point(225, 59);
             panelMain.Margin = new Padding(4, 3, 4, 3);
             panelMain.Name = "panelMain";
-            panelMain.Size = new Size(830, 614);
+            panelMain.Size = new Size(830, 555);
             panelMain.TabIndex = 1;
             // 
             // txbsizemenuNV

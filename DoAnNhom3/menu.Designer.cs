@@ -35,7 +35,7 @@
             btqldanhmuc = new Button();
             btqlkhachhang = new Button();
             panel1 = new Panel();
-            button1 = new Button();
+        //    button2 = new Button();
             panelMain = new Panel();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -50,11 +50,12 @@
             btqlnhanvien.TabIndex = 0;
             btqlnhanvien.Text = "Quản lí nhân viên";
             btqlnhanvien.UseVisualStyleBackColor = true;
+            btqlnhanvien.Click += btqlnhanvien_Click;
             // 
             // btbaocao
             // 
             btbaocao.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btbaocao.Location = new Point(11, 306);
+            btbaocao.Location = new Point(13, 342);
             btbaocao.Margin = new Padding(4, 3, 4, 3);
             btbaocao.Name = "btbaocao";
             btbaocao.Size = new Size(175, 52);
@@ -113,28 +114,30 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(button1);
+        //    panel1.Controls.Add(button2);
             panel1.Controls.Add(btqlnhanvien);
             panel1.Controls.Add(btqlkhachhang);
             panel1.Controls.Add(btqldanhmuc);
             panel1.Controls.Add(btbaocao);
             panel1.Controls.Add(btkhuyenmai);
             panel1.Controls.Add(btkhonguyenlieu);
-            panel1.Location = new Point(2, 12);
+            panel1.Location = new Point(2, 125);
             panel1.Margin = new Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(204, 605);
+            panel1.Size = new Size(204, 492);
             panel1.TabIndex = 6;
             // 
-            // button1
+            // button2
             // 
-            button1.Location = new Point(72, 398);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 6;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            button2.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button2.Location = new Point(11, 479);
+            button2.Margin = new Padding(4, 3, 4, 3);
+            button2.Name = "button2";
+            button2.Size = new Size(175, 52);
+            button2.TabIndex = 7;
+            button2.Text = "Đăng Xuất";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // panelMain
             // 
@@ -168,6 +171,6 @@
         private System.Windows.Forms.Button btqlkhachhang;
         private System.Windows.Forms.Panel panel1;
         public Panel panelMain;
-        private Button button1;
+        private Button button2;
     }
 }

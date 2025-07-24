@@ -8,7 +8,7 @@ namespace DoAnNhom3
 {
     public partial class NhanVien : Form
     {
-        private string connectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=QuanLyBanHangOnline;Integrated Security=True;Trust Server Certificate=True";
+        private string connectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=QuanLyBanHangOnline1;Integrated Security=True;Trust Server Certificate=True";
         private MonAn monAnDangChon;
 
         public NhanVien()
@@ -139,7 +139,7 @@ namespace DoAnNhom3
                 return;
             }
 
-            ucDonHang donHangUC = new ucDonHang(monAnDangChon)
+            ucDonHang donHangUC = new ucDonHang(new List<MonAn> { monAnDangChon })
             {
                 Dock = DockStyle.Fill
             };

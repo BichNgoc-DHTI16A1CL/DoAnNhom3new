@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace DoAnNhom3
 {
-    public partial class QuanLiDonHang: UserControl
+    public partial class QuanLiDonHang : UserControl
     {
         public QuanLiDonHang()
         {
             InitializeComponent();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

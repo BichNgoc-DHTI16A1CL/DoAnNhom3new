@@ -54,6 +54,7 @@
             dgvKhoNLieu.Name = "dgvKhoNLieu";
             dgvKhoNLieu.Size = new Size(543, 397);
             dgvKhoNLieu.TabIndex = 3;
+            dgvKhoNLieu.CellContentClick += dgvKhoNLieu_CellContentClick;
             // 
             // btnQuayLai
             // 

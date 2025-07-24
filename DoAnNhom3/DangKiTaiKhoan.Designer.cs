@@ -28,145 +28,182 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btdangki = new System.Windows.Forms.Button();
-            this.txbmatkhau = new System.Windows.Forms.TextBox();
-            this.txbsdt = new System.Windows.Forms.TextBox();
-            this.txbemail = new System.Windows.Forms.TextBox();
-            this.txbtendangnhap = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            this.SuspendLayout();
+            panel1 = new Panel();
+            label6 = new Label();
+            button1 = new Button();
+            btdangki = new Button();
+            txtMatKhau = new TextBox();
+            txtSoDienThoai = new TextBox();
+            txtEmail = new TextBox();
+            txtTenDangNhap = new TextBox();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            panel1.SuspendLayout();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.RosyBrown;
-            this.panel1.Controls.Add(this.btdangki);
-            this.panel1.Controls.Add(this.txbmatkhau);
-            this.panel1.Controls.Add(this.txbsdt);
-            this.panel1.Controls.Add(this.txbemail);
-            this.panel1.Controls.Add(this.txbtendangnhap);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(331, 86);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(266, 356);
-            this.panel1.TabIndex = 1;
+            panel1.BackColor = Color.RosyBrown;
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(button1);
+            panel1.Controls.Add(btdangki);
+            panel1.Controls.Add(txtMatKhau);
+            panel1.Controls.Add(txtSoDienThoai);
+            panel1.Controls.Add(txtEmail);
+            panel1.Controls.Add(txtTenDangNhap);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(label1);
+            panel1.Location = new Point(386, 99);
+            panel1.Margin = new Padding(4, 3, 4, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(310, 411);
+            panel1.TabIndex = 1;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(15, 379);
+            label6.Name = "label6";
+            label6.Size = new Size(116, 15);
+            label6.TabIndex = 11;
+            label6.Text = "Đã có tài khoản ? - >";
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Times New Roman", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.Location = new Point(138, 365);
+            button1.Margin = new Padding(4, 3, 4, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(115, 38);
+            button1.TabIndex = 10;
+            button1.Text = "Đăng nhập";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // btdangki
             // 
-            this.btdangki.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btdangki.Location = new System.Drawing.Point(75, 296);
-            this.btdangki.Name = "btdangki";
-            this.btdangki.Size = new System.Drawing.Size(118, 33);
-            this.btdangki.TabIndex = 9;
-            this.btdangki.Text = "Đăng kí";
-            this.btdangki.UseVisualStyleBackColor = true;
+            btdangki.Font = new Font("Times New Roman", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btdangki.Location = new Point(86, 321);
+            btdangki.Margin = new Padding(4, 3, 4, 3);
+            btdangki.Name = "btdangki";
+            btdangki.Size = new Size(138, 38);
+            btdangki.TabIndex = 9;
+            btdangki.Text = "Đăng ký";
+            btdangki.UseVisualStyleBackColor = true;
+            btdangki.Click += btdangki_Click;
             // 
-            // txbmatkhau
+            // txtMatKhau
             // 
-            this.txbmatkhau.Location = new System.Drawing.Point(17, 253);
-            this.txbmatkhau.Name = "txbmatkhau";
-            this.txbmatkhau.Size = new System.Drawing.Size(229, 20);
-            this.txbmatkhau.TabIndex = 8;
+            txtMatKhau.Location = new Point(20, 292);
+            txtMatKhau.Margin = new Padding(4, 3, 4, 3);
+            txtMatKhau.Name = "txtMatKhau";
+            txtMatKhau.Size = new Size(266, 23);
+            txtMatKhau.TabIndex = 8;
             // 
-            // txbsdt
+            // txtSoDienThoai
             // 
-            this.txbsdt.Location = new System.Drawing.Point(17, 192);
-            this.txbsdt.Name = "txbsdt";
-            this.txbsdt.Size = new System.Drawing.Size(229, 20);
-            this.txbsdt.TabIndex = 7;
+            txtSoDienThoai.Location = new Point(20, 222);
+            txtSoDienThoai.Margin = new Padding(4, 3, 4, 3);
+            txtSoDienThoai.Name = "txtSoDienThoai";
+            txtSoDienThoai.Size = new Size(266, 23);
+            txtSoDienThoai.TabIndex = 7;
             // 
-            // txbemail
+            // txtEmail
             // 
-            this.txbemail.Location = new System.Drawing.Point(17, 133);
-            this.txbemail.Name = "txbemail";
-            this.txbemail.Size = new System.Drawing.Size(229, 20);
-            this.txbemail.TabIndex = 6;
+            txtEmail.Location = new Point(20, 153);
+            txtEmail.Margin = new Padding(4, 3, 4, 3);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(266, 23);
+            txtEmail.TabIndex = 6;
             // 
-            // txbtendangnhap
+            // txtTenDangNhap
             // 
-            this.txbtendangnhap.Location = new System.Drawing.Point(17, 77);
-            this.txbtendangnhap.Name = "txbtendangnhap";
-            this.txbtendangnhap.Size = new System.Drawing.Size(229, 20);
-            this.txbtendangnhap.TabIndex = 5;
+            txtTenDangNhap.Location = new Point(20, 89);
+            txtTenDangNhap.Margin = new Padding(4, 3, 4, 3);
+            txtTenDangNhap.Name = "txtTenDangNhap";
+            txtTenDangNhap.Size = new Size(266, 23);
+            txtTenDangNhap.TabIndex = 5;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.SystemColors.Control;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(13, 231);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 19);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Mật khẩu";
+            label5.AutoSize = true;
+            label5.BackColor = SystemColors.Control;
+            label5.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(15, 267);
+            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(67, 19);
+            label5.TabIndex = 4;
+            label5.Text = "Mật khẩu";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.SystemColors.Control;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 111);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 19);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Email";
+            label4.AutoSize = true;
+            label4.BackColor = SystemColors.Control;
+            label4.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(15, 128);
+            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(42, 19);
+            label4.TabIndex = 3;
+            label4.Text = "Email";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.SystemColors.Control;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 170);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 19);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Số điện thoại";
+            label3.AutoSize = true;
+            label3.BackColor = SystemColors.Control;
+            label3.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(15, 196);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(88, 19);
+            label3.TabIndex = 2;
+            label3.Text = "Số điện thoại";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 55);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 19);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Tên đăng nhập";
+            label2.AutoSize = true;
+            label2.BackColor = Color.FromArgb(0, 0, 0, 0);
+            label2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(15, 63);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(98, 19);
+            label2.TabIndex = 1;
+            label2.Text = "Tên đăng nhập";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.Control;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(61, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Đăng kí tài khoản";
+            label1.AutoSize = true;
+            label1.BackColor = SystemColors.Control;
+            label1.Font = new Font("Times New Roman", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.ControlText;
+            label1.Location = new Point(71, 15);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(156, 23);
+            label1.TabIndex = 0;
+            label1.Text = "Đăng kí tài khoản";
             // 
             // DangKiTaiKhoan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-//            this.BackgroundImage = global::DoAnNhom3.Properties.Resources.banner2;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(904, 532);
-            this.Controls.Add(this.panel1);
-            this.Name = "DangKiTaiKhoan";
-            this.Text = "DangKiTaiKhoan";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1055, 614);
+            Controls.Add(panel1);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "DangKiTaiKhoan";
+            Text = "DangKiTaiKhoan";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ResumeLayout(false);
 
         }
 
@@ -174,14 +211,16 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btdangki;
-        private System.Windows.Forms.TextBox txbmatkhau;
-        private System.Windows.Forms.TextBox txbsdt;
-        private System.Windows.Forms.TextBox txbemail;
-        private System.Windows.Forms.TextBox txbtendangnhap;
+        private System.Windows.Forms.TextBox txtMatKhau;
+        private System.Windows.Forms.TextBox txtSoDienThoai;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtTenDangNhap;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private Label label6;
+        private Button button1;
     }
 }
