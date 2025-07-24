@@ -53,7 +53,7 @@
             btqlnhanvien.TabIndex = 0;
             btqlnhanvien.Text = "Quản lí nhân viên";
             btqlnhanvien.UseVisualStyleBackColor = false;
-            btqlnhanvien.Click += btqlnhanvien_Click;
+            //btqlnhanvien.Click += btqlnhanvien_Click;
             // 
             // btbaocao
             // 
@@ -161,7 +161,7 @@
             button2.TabIndex = 7;
             button2.Text = "Đăng Xuất";
             button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            //button2.Click += button2_Click;
             // 
             // panelMain
             // 
