@@ -43,37 +43,49 @@
             // 
             // btnQuayLai
             // 
-            btnQuayLai.Location = new Point(225, 186);
+            btnQuayLai.BackColor = Color.MediumTurquoise;
+            btnQuayLai.FlatAppearance.BorderSize = 0;
+            btnQuayLai.FlatStyle = FlatStyle.Flat;
+            btnQuayLai.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnQuayLai.Location = new Point(615, 513);
             btnQuayLai.Name = "btnQuayLai";
-            btnQuayLai.Size = new Size(75, 23);
+            btnQuayLai.Size = new Size(98, 35);
             btnQuayLai.TabIndex = 28;
             btnQuayLai.Text = "Quay Lại";
-            btnQuayLai.UseVisualStyleBackColor = true;
+            btnQuayLai.UseVisualStyleBackColor = false;
             // 
             // lblTongDoanhThu
             // 
             lblTongDoanhThu.AutoSize = true;
-            lblTongDoanhThu.Location = new Point(103, 142);
+            lblTongDoanhThu.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTongDoanhThu.Location = new Point(202, 207);
             lblTongDoanhThu.Margin = new Padding(4, 0, 4, 0);
             lblTongDoanhThu.Name = "lblTongDoanhThu";
-            lblTongDoanhThu.Size = new Size(97, 15);
+            lblTongDoanhThu.Size = new Size(139, 21);
             lblTongDoanhThu.TabIndex = 27;
             lblTongDoanhThu.Text = "Tổng Doanh Thu";
             // 
             // btnThongKe
             // 
-            btnThongKe.Location = new Point(103, 186);
+            btnThongKe.BackColor = Color.MediumTurquoise;
+            btnThongKe.FlatAppearance.BorderSize = 0;
+            btnThongKe.FlatStyle = FlatStyle.Flat;
+            btnThongKe.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnThongKe.Location = new Point(445, 513);
             btnThongKe.Margin = new Padding(4, 3, 4, 3);
             btnThongKe.Name = "btnThongKe";
-            btnThongKe.Size = new Size(88, 27);
+            btnThongKe.Size = new Size(105, 35);
             btnThongKe.TabIndex = 26;
             btnThongKe.Text = "Thống Kê";
-            btnThongKe.UseVisualStyleBackColor = true;
+            btnThongKe.UseVisualStyleBackColor = false;
             // 
             // dgvBaoCao
             // 
+            dgvBaoCao.Anchor = AnchorStyles.None;
+            dgvBaoCao.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvBaoCao.BackgroundColor = SystemColors.ButtonHighlight;
             dgvBaoCao.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvBaoCao.Location = new Point(112, 284);
+            dgvBaoCao.Location = new Point(250, 288);
             dgvBaoCao.Margin = new Padding(4, 3, 4, 3);
             dgvBaoCao.Name = "dgvBaoCao";
             dgvBaoCao.Size = new Size(645, 202);
@@ -82,17 +94,17 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(351, 246);
+            label5.Font = new Font("Times New Roman", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(489, 250);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(128, 21);
+            label5.Size = new Size(140, 23);
             label5.TabIndex = 22;
             label5.Text = "Bảng Thống Kê";
             // 
             // dtpDenNgay
             // 
-            dtpDenNgay.Location = new Point(351, 85);
+            dtpDenNgay.Location = new Point(454, 134);
             dtpDenNgay.Margin = new Padding(4, 3, 4, 3);
             dtpDenNgay.Name = "dtpDenNgay";
             dtpDenNgay.Size = new Size(188, 23);
@@ -102,7 +114,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(351, 57);
+            label4.Location = new Point(454, 106);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(113, 21);
@@ -111,7 +123,7 @@
             // 
             // dtpTuNgay
             // 
-            dtpTuNgay.Location = new Point(103, 85);
+            dtpTuNgay.Location = new Point(206, 134);
             dtpTuNgay.Margin = new Padding(4, 3, 4, 3);
             dtpTuNgay.Name = "dtpTuNgay";
             dtpTuNgay.Size = new Size(188, 23);
@@ -121,7 +133,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(99, 57);
+            label2.Location = new Point(202, 106);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(109, 21);
@@ -131,11 +143,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(351, 1);
+            label1.Font = new Font("Times New Roman", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(458, 21);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(193, 27);
+            label1.Size = new Size(223, 33);
             label1.TabIndex = 17;
             label1.Text = "Báo cáo doanh thu";
             // 
@@ -154,7 +166,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "ucBaoCaoThongKe";
-            Size = new Size(861, 513);
+            Size = new Size(1081, 618);
             ((System.ComponentModel.ISupportInitialize)dgvBaoCao).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -39,9 +39,10 @@
             // 
             // lbtenmonan
             // 
+            lbtenmonan.Anchor = AnchorStyles.None;
             lbtenmonan.AutoSize = true;
             lbtenmonan.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbtenmonan.Location = new Point(66, 161);
+            lbtenmonan.Location = new Point(84, 175);
             lbtenmonan.Margin = new Padding(4, 0, 4, 0);
             lbtenmonan.Name = "lbtenmonan";
             lbtenmonan.Size = new Size(45, 19);
@@ -50,9 +51,10 @@
             // 
             // lbgia
             // 
+            lbgia.Anchor = AnchorStyles.None;
             lbgia.AutoSize = true;
             lbgia.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbgia.Location = new Point(66, 182);
+            lbgia.Location = new Point(84, 207);
             lbgia.Margin = new Padding(4, 0, 4, 0);
             lbgia.Name = "lbgia";
             lbgia.Size = new Size(45, 19);
@@ -61,11 +63,11 @@
             // 
             // btmuangay
             // 
-            btmuangay.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btmuangay.Location = new Point(6, 233);
+            btmuangay.Font = new Font("Times New Roman", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btmuangay.Location = new Point(40, 276);
             btmuangay.Margin = new Padding(4, 3, 4, 3);
             btmuangay.Name = "btmuangay";
-            btmuangay.Size = new Size(166, 36);
+            btmuangay.Size = new Size(135, 36);
             btmuangay.TabIndex = 21;
             btmuangay.Text = "Thêm vào giỏ hàng";
             btmuangay.UseVisualStyleBackColor = true;
@@ -73,17 +75,19 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(8, 3);
+            pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(157, 155);
+            pictureBox1.Size = new Size(210, 155);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 23;
             pictureBox1.TabStop = false;
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(66, 204);
+            numericUpDown1.Anchor = AnchorStyles.None;
+            numericUpDown1.Location = new Point(84, 238);
             numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(61, 23);
+            numericUpDown1.Size = new Size(45, 23);
             numericUpDown1.TabIndex = 25;
             numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
@@ -99,7 +103,7 @@
             Controls.Add(lbtenmonan);
             Margin = new Padding(4, 3, 4, 3);
             Name = "ucMonAn";
-            Size = new Size(175, 276);
+            Size = new Size(210, 326);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);

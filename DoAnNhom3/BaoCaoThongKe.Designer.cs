@@ -48,16 +48,15 @@ namespace DoAnNhom3
             btnThongKe = new Button();
             lblTongDoanhThu = new Label();
             btnQuayLai = new Button();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvBaoCao).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Times New Roman", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(426, 28);
             label1.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(285, 36);
+            label1.Location = new Point(451, 34);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(193, 27);
@@ -68,8 +67,7 @@ namespace DoAnNhom3
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(169, 88);
-            label2.Location = new Point(33, 92);
+            label2.Location = new Point(199, 90);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(109, 21);
@@ -79,8 +77,7 @@ namespace DoAnNhom3
             // dtpTuNgay
             // 
             dtpTuNgay.Anchor = AnchorStyles.None;
-            dtpTuNgay.Location = new Point(173, 116);
-            dtpTuNgay.Location = new Point(37, 120);
+            dtpTuNgay.Location = new Point(219, 114);
             dtpTuNgay.Margin = new Padding(4, 3, 4, 3);
             dtpTuNgay.Name = "dtpTuNgay";
             dtpTuNgay.Size = new Size(188, 23);
@@ -89,8 +86,7 @@ namespace DoAnNhom3
             // dtpDenNgay
             // 
             dtpDenNgay.Anchor = AnchorStyles.None;
-            dtpDenNgay.Location = new Point(426, 116);
-            dtpDenNgay.Location = new Point(290, 120);
+            dtpDenNgay.Location = new Point(500, 114);
             dtpDenNgay.Margin = new Padding(4, 3, 4, 3);
             dtpDenNgay.Name = "dtpDenNgay";
             dtpDenNgay.Size = new Size(188, 23);
@@ -100,8 +96,7 @@ namespace DoAnNhom3
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(426, 88);
-            label4.Location = new Point(290, 92);
+            label4.Location = new Point(471, 90);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(113, 21);
@@ -112,8 +107,7 @@ namespace DoAnNhom3
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(477, 289);
-            label5.Location = new Point(290, 321);
+            label5.Location = new Point(456, 271);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(128, 21);
@@ -123,9 +117,10 @@ namespace DoAnNhom3
             // 
             // dgvBaoCao
             // 
+            dgvBaoCao.Anchor = AnchorStyles.None;
+            dgvBaoCao.BackgroundColor = SystemColors.ButtonHighlight;
             dgvBaoCao.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvBaoCao.Location = new Point(224, 325);
-            dgvBaoCao.Location = new Point(51, 345);
+            dgvBaoCao.Location = new Point(219, 304);
             dgvBaoCao.Margin = new Padding(4, 3, 4, 3);
             dgvBaoCao.Name = "dgvBaoCao";
             dgvBaoCao.Size = new Size(645, 202);
@@ -137,11 +132,10 @@ namespace DoAnNhom3
             rdoNgay.AutoSize = true;
             rdoNgay.Checked = true;
             rdoNgay.Font = new Font("Times New Roman", 11.25F);
-            rdoNgay.Location = new Point(173, 159);
-            rdoNgay.Location = new Point(37, 159);
+            rdoNgay.Location = new Point(203, 166);
             rdoNgay.Margin = new Padding(4, 3, 4, 3);
             rdoNgay.Name = "rdoNgay";
-            rdoNgay.Size = new Size(83, 19);
+            rdoNgay.Size = new Size(92, 21);
             rdoNgay.TabIndex = 12;
             rdoNgay.TabStop = true;
             rdoNgay.Text = "Theo Ngày";
@@ -151,11 +145,10 @@ namespace DoAnNhom3
             // 
             rdoThang.AutoSize = true;
             rdoThang.Font = new Font("Times New Roman", 11.25F);
-            rdoThang.Location = new Point(173, 195);
-            rdoThang.Location = new Point(37, 195);
+            rdoThang.Location = new Point(203, 193);
             rdoThang.Margin = new Padding(4, 3, 4, 3);
             rdoThang.Name = "rdoThang";
-            rdoThang.Size = new Size(89, 19);
+            rdoThang.Size = new Size(97, 21);
             rdoThang.TabIndex = 13;
             rdoThang.Text = "Theo Tháng";
             rdoThang.UseVisualStyleBackColor = true;
@@ -167,11 +160,10 @@ namespace DoAnNhom3
             btnThongKe.FlatAppearance.BorderSize = 0;
             btnThongKe.FlatStyle = FlatStyle.Flat;
             btnThongKe.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnThongKe.Location = new Point(338, 564);
-            btnThongKe.Location = new Point(315, 238);
+            btnThongKe.Location = new Point(365, 529);
             btnThongKe.Margin = new Padding(4, 3, 4, 3);
             btnThongKe.Name = "btnThongKe";
-            btnThongKe.Size = new Size(88, 27);
+            btnThongKe.Size = new Size(103, 27);
             btnThongKe.TabIndex = 14;
             btnThongKe.Text = "Thống Kê";
             btnThongKe.UseVisualStyleBackColor = true;
@@ -181,11 +173,10 @@ namespace DoAnNhom3
             // 
             lblTongDoanhThu.AutoSize = true;
             lblTongDoanhThu.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTongDoanhThu.Location = new Point(173, 243);
-            lblTongDoanhThu.Location = new Point(33, 238);
+            lblTongDoanhThu.Location = new Point(199, 236);
             lblTongDoanhThu.Margin = new Padding(4, 0, 4, 0);
             lblTongDoanhThu.Name = "lblTongDoanhThu";
-            lblTongDoanhThu.Size = new Size(97, 15);
+            lblTongDoanhThu.Size = new Size(139, 21);
             lblTongDoanhThu.TabIndex = 15;
             lblTongDoanhThu.Text = "Tổng Doanh Thu";
             lblTongDoanhThu.Click += label6_Click;
@@ -197,10 +188,9 @@ namespace DoAnNhom3
             btnQuayLai.FlatAppearance.BorderSize = 0;
             btnQuayLai.FlatStyle = FlatStyle.Flat;
             btnQuayLai.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnQuayLai.Location = new Point(488, 564);
-            btnQuayLai.Location = new Point(465, 238);
+            btnQuayLai.Location = new Point(515, 529);
             btnQuayLai.Name = "btnQuayLai";
-            btnQuayLai.Size = new Size(75, 23);
+            btnQuayLai.Size = new Size(88, 27);
             btnQuayLai.TabIndex = 16;
             btnQuayLai.Text = "Quay Lại";
             btnQuayLai.UseVisualStyleBackColor = true;
@@ -208,22 +198,23 @@ namespace DoAnNhom3
             // 
             // button1
             // 
-            /*button1.Anchor = AnchorStyles.None;
+            button1.Anchor = AnchorStyles.None;
             button1.BackColor = Color.MediumTurquoise;
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(633, 564);
+            button1.Location = new Point(650, 529);
             button1.Name = "button1";
-            button1.Size = new Size(97, 34);
+            button1.Size = new Size(99, 27);
             button1.TabIndex = 17;
             button1.Text = "Xuất excel";
-            button1.UseVisualStyleBackColor = false;*/
+            button1.UseVisualStyleBackColor = true;
             // 
             // BaoCaoThongKe
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(button1);
             Controls.Add(btnQuayLai);
             Controls.Add(lblTongDoanhThu);
             Controls.Add(btnThongKe);
@@ -239,7 +230,6 @@ namespace DoAnNhom3
             Margin = new Padding(4, 3, 4, 3);
             Name = "BaoCaoThongKe";
             Size = new Size(1081, 618);
-            Size = new Size(740, 563);
             ((System.ComponentModel.ISupportInitialize)dgvBaoCao).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -260,5 +250,6 @@ namespace DoAnNhom3
         private System.Windows.Forms.Button btnThongKe;
         private System.Windows.Forms.Label lblTongDoanhThu;
         private Button btnQuayLai;
+        private Button button1;
     }
 }

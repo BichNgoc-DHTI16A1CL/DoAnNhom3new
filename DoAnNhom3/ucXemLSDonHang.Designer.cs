@@ -36,6 +36,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(438, 46);
@@ -59,10 +60,12 @@
             // 
             // lblTongTien
             // 
+            lblTongTien.Anchor = AnchorStyles.None;
             lblTongTien.AutoSize = true;
-            lblTongTien.Location = new Point(546, 514);
+            lblTongTien.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTongTien.Location = new Point(524, 495);
             lblTongTien.Name = "lblTongTien";
-            lblTongTien.Size = new Size(38, 15);
+            lblTongTien.Size = new Size(53, 21);
             lblTongTien.TabIndex = 2;
             lblTongTien.Text = "label2";
             // 
@@ -70,7 +73,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ButtonHighlight;
+            BackColor = SystemColors.Control;
             Controls.Add(lblTongTien);
             Controls.Add(dgvLichSu);
             Controls.Add(label1);

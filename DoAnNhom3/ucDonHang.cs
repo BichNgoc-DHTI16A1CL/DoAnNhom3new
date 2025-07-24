@@ -143,5 +143,10 @@ namespace DoAnNhom3
 
             ThanhToanClicked?.Invoke(new List<MonAn>(gioHang));
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

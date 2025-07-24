@@ -37,10 +37,13 @@
             // flpgiohang
             // 
             flpgiohang.AutoScroll = true;
+            flpgiohang.BackColor = SystemColors.Control;
             flpgiohang.Controls.Add(flpMenu);
-            flpgiohang.Location = new Point(0, 75);
+            flpgiohang.Font = new Font("Times New Roman", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            flpgiohang.Location = new Point(162, 105);
             flpgiohang.Name = "flpgiohang";
-            flpgiohang.Size = new Size(807, 488);
+            flpgiohang.Padding = new Padding(10);
+            flpgiohang.Size = new Size(919, 510);
             flpgiohang.TabIndex = 0;
             flpgiohang.Paint += flpgiohang_Paint;
             // 
@@ -48,18 +51,19 @@
             // 
             flpMenu.AutoScroll = true;
             flpMenu.Dock = DockStyle.Fill;
-            flpMenu.Location = new Point(3, 3);
+            flpMenu.Location = new Point(13, 13);
             flpMenu.Name = "flpMenu";
             flpMenu.Size = new Size(754, 0);
             flpMenu.TabIndex = 0;
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Left;
             label1.AutoSize = true;
-            label1.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(378, 25);
+            label1.Font = new Font("Times New Roman", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(607, 28);
             label1.Name = "label1";
-            label1.Size = new Size(81, 27);
+            label1.Size = new Size(101, 33);
             label1.TabIndex = 2;
             label1.Text = "MENU";
             // 
@@ -70,7 +74,7 @@
             Controls.Add(label1);
             Controls.Add(flpgiohang);
             Name = "ucMenuMonAn";
-            Size = new Size(807, 563);
+            Size = new Size(1081, 618);
             flpgiohang.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

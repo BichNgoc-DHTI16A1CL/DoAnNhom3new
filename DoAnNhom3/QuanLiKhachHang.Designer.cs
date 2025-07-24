@@ -39,9 +39,10 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(73, 63);
+            label1.Location = new Point(189, 72);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(229, 27);
@@ -50,17 +51,20 @@
             // 
             // dgvkhachhang
             // 
+            dgvkhachhang.Anchor = AnchorStyles.None;
             dgvkhachhang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvkhachhang.BackgroundColor = SystemColors.ButtonHighlight;
             dgvkhachhang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvkhachhang.Location = new Point(16, 104);
+            dgvkhachhang.Location = new Point(109, 132);
             dgvkhachhang.Margin = new Padding(4, 3, 4, 3);
             dgvkhachhang.Name = "dgvkhachhang";
-            dgvkhachhang.Size = new Size(361, 372);
+            dgvkhachhang.Size = new Size(390, 372);
             dgvkhachhang.TabIndex = 3;
             // 
             // btnQuayLai
             // 
-            btnQuayLai.Location = new Point(364, 501);
+            btnQuayLai.Anchor = AnchorStyles.None;
+            btnQuayLai.Location = new Point(487, 553);
             btnQuayLai.Name = "btnQuayLai";
             btnQuayLai.Size = new Size(75, 23);
             btnQuayLai.TabIndex = 4;
@@ -70,9 +74,10 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(398, 63);
+            label3.Location = new Point(630, 72);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(223, 27);
@@ -81,18 +86,21 @@
             // 
             // dgvTaiKhoan
             // 
+            dgvTaiKhoan.Anchor = AnchorStyles.None;
             dgvTaiKhoan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvTaiKhoan.BackgroundColor = SystemColors.ButtonHighlight;
             dgvTaiKhoan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvTaiKhoan.Location = new Point(385, 104);
+            dgvTaiKhoan.Location = new Point(569, 132);
             dgvTaiKhoan.Margin = new Padding(4, 3, 4, 3);
             dgvTaiKhoan.Name = "dgvTaiKhoan";
-            dgvTaiKhoan.Size = new Size(421, 372);
+            dgvTaiKhoan.Size = new Size(392, 372);
             dgvTaiKhoan.TabIndex = 7;
             // 
             // QuanLiKhachHang
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             Controls.Add(dgvTaiKhoan);
             Controls.Add(label3);
             Controls.Add(btnQuayLai);
@@ -100,7 +108,7 @@
             Controls.Add(label1);
             Margin = new Padding(4, 3, 4, 3);
             Name = "QuanLiKhachHang";
-            Size = new Size(849, 563);
+            Size = new Size(1081, 618);
             ((System.ComponentModel.ISupportInitialize)dgvkhachhang).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvTaiKhoan).EndInit();
             ResumeLayout(false);

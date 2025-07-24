@@ -36,9 +36,12 @@
             // 
             // button4
             // 
-            button4.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button4.Anchor = AnchorStyles.None;
+            button4.FlatAppearance.BorderSize = 0;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("Times New Roman", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button4.ForeColor = Color.Black;
-            button4.Location = new Point(261, 50);
+            button4.Location = new Point(436, 64);
             button4.Margin = new Padding(4, 3, 4, 3);
             button4.Name = "button4";
             button4.Size = new Size(261, 44);
@@ -48,20 +51,26 @@
             // 
             // dgvDonHang
             // 
+            dgvDonHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDonHang.BackgroundColor = SystemColors.ButtonHighlight;
             dgvDonHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDonHang.Location = new Point(99, 185);
+            dgvDonHang.Location = new Point(166, 137);
             dgvDonHang.Name = "dgvDonHang";
-            dgvDonHang.Size = new Size(621, 228);
+            dgvDonHang.Size = new Size(789, 277);
             dgvDonHang.TabIndex = 9;
             // 
             // btnTaiLai
             // 
-            btnTaiLai.Location = new Point(435, 471);
+            btnTaiLai.BackColor = Color.MediumTurquoise;
+            btnTaiLai.FlatAppearance.BorderSize = 0;
+            btnTaiLai.FlatStyle = FlatStyle.Flat;
+            btnTaiLai.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnTaiLai.Location = new Point(533, 449);
             btnTaiLai.Name = "btnTaiLai";
-            btnTaiLai.Size = new Size(75, 23);
+            btnTaiLai.Size = new Size(102, 43);
             btnTaiLai.TabIndex = 10;
             btnTaiLai.Text = "Update";
-            btnTaiLai.UseVisualStyleBackColor = true;
+            btnTaiLai.UseVisualStyleBackColor = false;
             // 
             // QuanLiDonHang
             // 
@@ -72,7 +81,7 @@
             Controls.Add(button4);
             Margin = new Padding(4, 3, 4, 3);
             Name = "QuanLiDonHang";
-            Size = new Size(807, 563);
+            Size = new Size(1081, 618);
             ((System.ComponentModel.ISupportInitialize)dgvDonHang).EndInit();
             ResumeLayout(false);
 

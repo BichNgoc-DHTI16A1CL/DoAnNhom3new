@@ -38,7 +38,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(453, 27);
+            label1.Location = new Point(436, 27);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(270, 33);
@@ -50,10 +50,10 @@
             dgvKhoNLieu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvKhoNLieu.BackgroundColor = SystemColors.ButtonHighlight;
             dgvKhoNLieu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvKhoNLieu.Location = new Point(290, 96);
+            dgvKhoNLieu.Location = new Point(216, 96);
             dgvKhoNLieu.Margin = new Padding(4, 3, 4, 3);
             dgvKhoNLieu.Name = "dgvKhoNLieu";
-            dgvKhoNLieu.Size = new Size(543, 397);
+            dgvKhoNLieu.Size = new Size(636, 397);
             dgvKhoNLieu.TabIndex = 3;
             dgvKhoNLieu.CellContentClick += dgvKhoNLieu_CellContentClick;
             // 
@@ -71,7 +71,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ButtonHighlight;
+            BackColor = SystemColors.Control;
             Controls.Add(btnQuayLai);
             Controls.Add(dgvKhoNLieu);
             Controls.Add(label1);
