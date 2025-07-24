@@ -37,27 +37,30 @@
             btquenmatkhau = new Button();
             panel1 = new Panel();
             btDangKy = new Button();
+            panel2 = new Panel();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
-            label1.BackColor = SystemColors.MenuHighlight;
-            label1.Font = new Font("Times New Roman", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(110, 22);
+            label1.BackColor = SystemColors.HighlightText;
+            label1.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Blue;
+            label1.Location = new Point(128, 36);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(98, 23);
+            label1.Size = new Size(116, 27);
             label1.TabIndex = 0;
             label1.Text = "Đăng nhập";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.BackColor = SystemColors.ScrollBar;
+            label2.BackColor = SystemColors.HighlightText;
             label2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(15, 63);
+            label2.Location = new Point(41, 87);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(98, 19);
@@ -67,9 +70,9 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.BackColor = SystemColors.ScrollBar;
+            label5.BackColor = SystemColors.HighlightText;
             label5.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(15, 146);
+            label5.Location = new Point(41, 167);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(67, 19);
@@ -78,30 +81,31 @@
             // 
             // txbtendangnhap
             // 
-            txbtendangnhap.Location = new Point(20, 89);
+            txbtendangnhap.Location = new Point(41, 109);
             txbtendangnhap.Margin = new Padding(4, 3, 4, 3);
             txbtendangnhap.Name = "txbtendangnhap";
-            txbtendangnhap.Size = new Size(266, 23);
+            txbtendangnhap.Size = new Size(274, 23);
             txbtendangnhap.TabIndex = 5;
             // 
             // txbmatkhau
             // 
-            txbmatkhau.Location = new Point(20, 171);
+            txbmatkhau.Location = new Point(41, 189);
             txbmatkhau.Margin = new Padding(4, 3, 4, 3);
             txbmatkhau.Name = "txbmatkhau";
-            txbmatkhau.Size = new Size(266, 23);
+            txbmatkhau.Size = new Size(274, 23);
             txbmatkhau.TabIndex = 8;
             // 
             // btdangnhap
             // 
-            btdangnhap.Font = new Font("Times New Roman", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btdangnhap.Location = new Point(87, 278);
+            btdangnhap.BackColor = Color.Turquoise;
+            btdangnhap.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btdangnhap.Location = new Point(62, 275);
             btdangnhap.Margin = new Padding(4, 3, 4, 3);
             btdangnhap.Name = "btdangnhap";
-            btdangnhap.Size = new Size(138, 38);
+            btdangnhap.Size = new Size(105, 38);
             btdangnhap.TabIndex = 9;
             btdangnhap.Text = "Đăng nhập";
-            btdangnhap.UseVisualStyleBackColor = true;
+            btdangnhap.UseVisualStyleBackColor = false;
             btdangnhap.Click += btdangnhap_Click;
             // 
             // btquenmatkhau
@@ -114,7 +118,7 @@
             btquenmatkhau.FlatStyle = FlatStyle.Flat;
             btquenmatkhau.Font = new Font("Times New Roman", 9.75F, FontStyle.Underline, GraphicsUnit.Point, 0);
             btquenmatkhau.ForeColor = SystemColors.ActiveCaptionText;
-            btquenmatkhau.Location = new Point(88, 239);
+            btquenmatkhau.Location = new Point(119, 237);
             btquenmatkhau.Margin = new Padding(4, 3, 4, 3);
             btquenmatkhau.Name = "btquenmatkhau";
             btquenmatkhau.Size = new Size(135, 32);
@@ -125,7 +129,10 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.None;
             panel1.BackColor = Color.FromArgb(50, 0, 0, 0);
+            panel1.BackgroundImage = Properties.Resources.dangnhap2;
+            panel1.BackgroundImageLayout = ImageLayout.Stretch;
             panel1.Controls.Add(btDangKy);
             panel1.Controls.Add(btquenmatkhau);
             panel1.Controls.Add(btdangnhap);
@@ -134,31 +141,44 @@
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(376, 99);
+            panel1.Location = new Point(343, 118);
             panel1.Margin = new Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(310, 366);
+            panel1.Size = new Size(352, 366);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
             // btDangKy
             // 
-            btDangKy.Font = new Font("Times New Roman", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btDangKy.Location = new Point(87, 322);
+            btDangKy.BackColor = Color.SpringGreen;
+            btDangKy.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btDangKy.Location = new Point(186, 275);
             btDangKy.Margin = new Padding(4, 3, 4, 3);
             btDangKy.Name = "btDangKy";
-            btDangKy.Size = new Size(138, 38);
+            btDangKy.Size = new Size(109, 38);
             btDangKy.TabIndex = 11;
             btDangKy.Text = "Đăng ký";
-            btDangKy.UseVisualStyleBackColor = true;
+            btDangKy.UseVisualStyleBackColor = false;
             btDangKy.Click += btDangKy_Click;
+            // 
+            // panel2
+            // 
+            panel2.BackgroundImage = Properties.Resources.logo;
+            panel2.BackgroundImageLayout = ImageLayout.Stretch;
+            panel2.Location = new Point(1, -2);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(157, 164);
+            panel2.TabIndex = 1;
             // 
             // DangNhap
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.dangnhap3;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1050, 614);
+            ControlBox = false;
+            Controls.Add(panel2);
             Controls.Add(panel1);
             Margin = new Padding(4, 3, 4, 3);
             Name = "DangNhap";
@@ -181,5 +201,6 @@
         private System.Windows.Forms.Button btquenmatkhau;
         private System.Windows.Forms.Panel panel1;
         private Button btDangKy;
+        private Panel panel2;
     }
 }

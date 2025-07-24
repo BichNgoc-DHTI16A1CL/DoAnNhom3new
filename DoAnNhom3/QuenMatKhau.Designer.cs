@@ -38,11 +38,15 @@
             label5 = new Label();
             label2 = new Label();
             label1 = new Label();
+            panel2 = new Panel();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.None;
+            panel1.BackgroundImage = Properties.Resources.dangnhap2;
+            panel1.BackgroundImageLayout = ImageLayout.Stretch;
             panel1.Controls.Add(lblTrangThai);
             panel1.Controls.Add(txbsdt);
             panel1.Controls.Add(label4);
@@ -77,9 +81,9 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.BackColor = SystemColors.Control;
+            label4.BackColor = SystemColors.ButtonHighlight;
             label4.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(80, 150);
+            label4.Location = new Point(78, 162);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(88, 19);
@@ -88,14 +92,15 @@
             // 
             // btxacnhan
             // 
+            btxacnhan.BackColor = Color.LimeGreen;
             btxacnhan.Font = new Font("Times New Roman", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btxacnhan.Location = new Point(147, 324);
+            btxacnhan.Location = new Point(147, 314);
             btxacnhan.Margin = new Padding(4, 3, 4, 3);
             btxacnhan.Name = "btxacnhan";
             btxacnhan.Size = new Size(138, 38);
             btxacnhan.TabIndex = 16;
             btxacnhan.Text = "Xác nhận";
-            btxacnhan.UseVisualStyleBackColor = true;
+            btxacnhan.UseVisualStyleBackColor = false;
             btxacnhan.Click += btxacnhan_Click;
             // 
             // txbmatkhaumoi
@@ -108,7 +113,7 @@
             // 
             // txbtendangnhap
             // 
-            txbtendangnhap.Location = new Point(78, 115);
+            txbtendangnhap.Location = new Point(79, 106);
             txbtendangnhap.Margin = new Padding(4, 3, 4, 3);
             txbtendangnhap.Name = "txbtendangnhap";
             txbtendangnhap.Size = new Size(266, 23);
@@ -117,9 +122,9 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.BackColor = SystemColors.Control;
+            label5.BackColor = SystemColors.ButtonHighlight;
             label5.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(80, 222);
+            label5.Location = new Point(79, 234);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(93, 19);
@@ -129,7 +134,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.BackColor = SystemColors.Control;
+            label2.BackColor = SystemColors.ButtonHighlight;
             label2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ControlText;
             label2.Location = new Point(80, 84);
@@ -143,20 +148,33 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = SystemColors.Control;
+            label1.BackColor = SystemColors.HighlightText;
             label1.Font = new Font("Times New Roman", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(133, 23);
+            label1.ForeColor = Color.Blue;
+            label1.Location = new Point(147, 38);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(136, 23);
             label1.TabIndex = 1;
             label1.Text = "Quên mật khẩu";
             // 
+            // panel2
+            // 
+            panel2.BackgroundImage = Properties.Resources.logo;
+            panel2.BackgroundImageLayout = ImageLayout.Stretch;
+            panel2.Location = new Point(0, 2);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(157, 170);
+            panel2.TabIndex = 2;
+            // 
             // QuenMatKhau
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.dangnhap3;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1055, 614);
+            Controls.Add(panel2);
             Controls.Add(panel1);
             Margin = new Padding(4, 3, 4, 3);
             Name = "QuenMatKhau";
@@ -179,5 +197,6 @@
         private TextBox txbsdt;
         private Label label4;
         private Label lblTrangThai;
+        private Panel panel2;
     }
 }

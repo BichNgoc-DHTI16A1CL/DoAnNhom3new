@@ -28,80 +28,84 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btgiohang = new System.Windows.Forms.Button();
-            this.btmuangay = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            label2 = new Label();
+            label1 = new Label();
+            pictureBox1 = new PictureBox();
+            btgiohang = new Button();
+            btmuangay = new Button();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(56, 152);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 19);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "20.000";
+            label2.AutoSize = true;
+            label2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(65, 175);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(53, 19);
+            label2.TabIndex = 8;
+            label2.Text = "20.000";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(27, 124);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 19);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Nước ép dưa hấu";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label1.AutoSize = true;
+            label1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(31, 143);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(117, 19);
+            label1.TabIndex = 7;
+            label1.Text = "Nước ép dưa hấu";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
-//            this.pictureBox1.Image = global::DoAnNhom3.Properties.Resources.nuocduahau;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(150, 110);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Margin = new Padding(4, 3, 4, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(178, 127);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
             // btgiohang
             // 
-          //  this.btgiohang.BackgroundImage = global::DoAnNhom3.Properties.Resources.giohang;
-            this.btgiohang.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btgiohang.Location = new System.Drawing.Point(115, 174);
-            this.btgiohang.Name = "btgiohang";
-            this.btgiohang.Size = new System.Drawing.Size(35, 31);
-            this.btgiohang.TabIndex = 21;
-            this.btgiohang.UseVisualStyleBackColor = true;
+            btgiohang.BackgroundImageLayout = ImageLayout.Stretch;
+            btgiohang.Location = new Point(134, 201);
+            btgiohang.Margin = new Padding(4, 3, 4, 3);
+            btgiohang.Name = "btgiohang";
+            btgiohang.Size = new Size(41, 36);
+            btgiohang.TabIndex = 21;
+            btgiohang.UseVisualStyleBackColor = true;
             // 
             // btmuangay
             // 
-            this.btmuangay.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btmuangay.Location = new System.Drawing.Point(16, 174);
-            this.btmuangay.Name = "btmuangay";
-            this.btmuangay.Size = new System.Drawing.Size(93, 31);
-            this.btmuangay.TabIndex = 20;
-            this.btmuangay.Text = "Mua ngay";
-            this.btmuangay.UseVisualStyleBackColor = true;
+            btmuangay.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btmuangay.Location = new Point(19, 201);
+            btmuangay.Margin = new Padding(4, 3, 4, 3);
+            btmuangay.Name = "btmuangay";
+            btmuangay.Size = new Size(108, 36);
+            btmuangay.TabIndex = 20;
+            btmuangay.Text = "Mua ngay";
+            btmuangay.UseVisualStyleBackColor = true;
             // 
             // menuncduahau
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Controls.Add(this.btgiohang);
-            this.Controls.Add(this.btmuangay);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
-            this.Name = "menuncduahau";
-            this.Size = new System.Drawing.Size(153, 209);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaption;
+            Controls.Add(btgiohang);
+            Controls.Add(btmuangay);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(pictureBox1);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "menuncduahau";
+            Size = new Size(178, 241);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
