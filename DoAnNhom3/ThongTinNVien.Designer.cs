@@ -47,31 +47,34 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(159, 44);
+            label1.Font = new Font("Times New Roman", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(446, 36);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(213, 27);
+            label1.Size = new Size(249, 33);
             label1.TabIndex = 1;
             label1.Text = "Danh sách nhân viên";
             // 
             // btSuaNV
             // 
+            btSuaNV.BackColor = Color.MediumTurquoise;
+            btSuaNV.FlatAppearance.BorderSize = 0;
+            btSuaNV.FlatStyle = FlatStyle.Flat;
             btSuaNV.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btSuaNV.Location = new Point(348, 428);
+            btSuaNV.Location = new Point(482, 525);
             btSuaNV.Margin = new Padding(4, 3, 4, 3);
             btSuaNV.Name = "btSuaNV";
             btSuaNV.Size = new Size(153, 52);
             btSuaNV.TabIndex = 16;
             btSuaNV.Text = "Sửa";
-            btSuaNV.UseVisualStyleBackColor = true;
+            btSuaNV.UseVisualStyleBackColor = false;
             btSuaNV.Click += btSuaNV_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(556, 87);
+            label2.Location = new Point(769, 125);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(109, 21);
@@ -81,7 +84,7 @@
             // 
             // txbmanhanvien
             // 
-            txbmanhanvien.Location = new Point(561, 114);
+            txbmanhanvien.Location = new Point(774, 152);
             txbmanhanvien.Margin = new Padding(4, 3, 4, 3);
             txbmanhanvien.Name = "txbmanhanvien";
             txbmanhanvien.Size = new Size(224, 23);
@@ -91,7 +94,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(558, 246);
+            label3.Location = new Point(771, 284);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(108, 21);
@@ -100,7 +103,7 @@
             // 
             // txbsdt
             // 
-            txbsdt.Location = new Point(562, 273);
+            txbsdt.Location = new Point(775, 311);
             txbsdt.Margin = new Padding(4, 3, 4, 3);
             txbsdt.Name = "txbsdt";
             txbsdt.Size = new Size(224, 23);
@@ -110,7 +113,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(556, 166);
+            label4.Location = new Point(769, 204);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(114, 21);
@@ -119,7 +122,7 @@
             // 
             // txbtennhanvien
             // 
-            txbtennhanvien.Location = new Point(561, 194);
+            txbtennhanvien.Location = new Point(774, 232);
             txbtennhanvien.Margin = new Padding(4, 3, 4, 3);
             txbtennhanvien.Name = "txbtennhanvien";
             txbtennhanvien.Size = new Size(224, 23);
@@ -129,7 +132,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(558, 328);
+            label5.Location = new Point(771, 366);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(65, 21);
@@ -138,7 +141,7 @@
             // 
             // txbdiachi
             // 
-            txbdiachi.Location = new Point(561, 355);
+            txbdiachi.Location = new Point(774, 393);
             txbdiachi.Margin = new Padding(4, 3, 4, 3);
             txbdiachi.Name = "txbdiachi";
             txbdiachi.Size = new Size(224, 23);
@@ -147,35 +150,43 @@
             // 
             // btThemNV
             // 
+            btThemNV.BackColor = Color.MediumTurquoise;
+            btThemNV.FlatAppearance.BorderSize = 0;
+            btThemNV.FlatStyle = FlatStyle.Flat;
             btThemNV.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btThemNV.Location = new Point(106, 428);
+            btThemNV.Location = new Point(240, 525);
             btThemNV.Margin = new Padding(4, 3, 4, 3);
             btThemNV.Name = "btThemNV";
             btThemNV.Size = new Size(153, 52);
             btThemNV.TabIndex = 14;
             btThemNV.Text = "Thêm";
-            btThemNV.UseVisualStyleBackColor = true;
+            btThemNV.UseVisualStyleBackColor = false;
             btThemNV.Click += btThemNV_Click;
             // 
             // btXoaNV
             // 
+            btXoaNV.BackColor = Color.MediumTurquoise;
+            btXoaNV.FlatAppearance.BorderSize = 0;
+            btXoaNV.FlatStyle = FlatStyle.Flat;
             btXoaNV.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btXoaNV.Location = new Point(574, 428);
+            btXoaNV.Location = new Point(708, 525);
             btXoaNV.Margin = new Padding(4, 3, 4, 3);
             btXoaNV.Name = "btXoaNV";
             btXoaNV.Size = new Size(153, 52);
             btXoaNV.TabIndex = 15;
             btXoaNV.Text = "Xóa";
-            btXoaNV.UseVisualStyleBackColor = true;
+            btXoaNV.UseVisualStyleBackColor = false;
             btXoaNV.Click += btXoaNV_Click;
             // 
             // dgvdsnv
             // 
+            dgvdsnv.Anchor = AnchorStyles.None;
+            dgvdsnv.BackgroundColor = SystemColors.ButtonHighlight;
             dgvdsnv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvdsnv.Location = new Point(34, 93);
+            dgvdsnv.Location = new Point(109, 123);
             dgvdsnv.Margin = new Padding(4, 3, 4, 3);
             dgvdsnv.Name = "dgvdsnv";
-            dgvdsnv.Size = new Size(493, 258);
+            dgvdsnv.Size = new Size(547, 316);
             dgvdsnv.TabIndex = 2;
             dgvdsnv.CellClick += dgvdsnv_CellClick;
             dgvdsnv.CellContentClick += dgvdsnv_CellContentClick;
@@ -184,6 +195,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ButtonHighlight;
             Controls.Add(btSuaNV);
             Controls.Add(btXoaNV);
             Controls.Add(btThemNV);
@@ -199,7 +211,7 @@
             Controls.Add(label1);
             Margin = new Padding(4, 3, 4, 3);
             Name = "ThongTinNVien";
-            Size = new Size(807, 563);
+            Size = new Size(1081, 618);
             ((System.ComponentModel.ISupportInitialize)dgvdsnv).EndInit();
             ResumeLayout(false);
             PerformLayout();

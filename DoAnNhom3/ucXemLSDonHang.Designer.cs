@@ -37,39 +37,45 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(341, 72);
+            label1.Font = new Font("Times New Roman", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(438, 46);
             label1.Name = "label1";
-            label1.Size = new Size(116, 15);
+            label1.Size = new Size(243, 33);
             label1.TabIndex = 0;
             label1.Text = "Danh sách đơn hàng";
             // 
             // dgvLichSu
             // 
+            dgvLichSu.Anchor = AnchorStyles.None;
+            dgvLichSu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvLichSu.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllHeaders;
+            dgvLichSu.BackgroundColor = SystemColors.ButtonHighlight;
             dgvLichSu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvLichSu.Location = new Point(80, 135);
+            dgvLichSu.Location = new Point(172, 125);
             dgvLichSu.Name = "dgvLichSu";
-            dgvLichSu.Size = new Size(624, 272);
+            dgvLichSu.Size = new Size(769, 346);
             dgvLichSu.TabIndex = 1;
             dgvLichSu.CellContentClick += dgvDonHang_CellContentClick;
             // 
             // lblTongTien
             // 
             lblTongTien.AutoSize = true;
-            lblTongTien.Location = new Point(309, 439);
+            lblTongTien.Location = new Point(546, 514);
             lblTongTien.Name = "lblTongTien";
             lblTongTien.Size = new Size(38, 15);
             lblTongTien.TabIndex = 2;
             lblTongTien.Text = "label2";
             // 
-            // ucXemDonHang
+            // ucXemLSDonHang
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ButtonHighlight;
             Controls.Add(lblTongTien);
             Controls.Add(dgvLichSu);
             Controls.Add(label1);
-            Name = "ucXemDonHang";
-            Size = new Size(770, 548);
+            Name = "ucXemLSDonHang";
+            Size = new Size(1081, 618);
             ((System.ComponentModel.ISupportInitialize)dgvLichSu).EndInit();
             ResumeLayout(false);
             PerformLayout();

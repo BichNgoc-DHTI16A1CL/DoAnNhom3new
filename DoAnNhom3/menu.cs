@@ -79,5 +79,34 @@ namespace DoAnNhom3
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            DangNhap DN = new DangNhap();
+            DN.Show();
+        }
+
+        private void btqlnhanvien_Click(object sender, EventArgs e)
+        {
+            panelMain.Controls.Clear();
+
+            // Tạo mới instance của UserControl
+            ThongTinNVien baoCaoUC = new ThongTinNVien(this);
+            baoCaoUC.Dock = DockStyle.Fill; // Để tự giãn theo panel
+
+            // Thêm vào panel
+            panelMain.Controls.Add(baoCaoUC);
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelMain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

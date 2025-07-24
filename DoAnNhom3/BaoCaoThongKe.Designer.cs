@@ -54,6 +54,8 @@ namespace DoAnNhom3
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Times New Roman", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(426, 28);
             label1.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(285, 36);
             label1.Margin = new Padding(4, 0, 4, 0);
@@ -66,6 +68,7 @@ namespace DoAnNhom3
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(169, 88);
             label2.Location = new Point(33, 92);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
@@ -75,6 +78,8 @@ namespace DoAnNhom3
             // 
             // dtpTuNgay
             // 
+            dtpTuNgay.Anchor = AnchorStyles.None;
+            dtpTuNgay.Location = new Point(173, 116);
             dtpTuNgay.Location = new Point(37, 120);
             dtpTuNgay.Margin = new Padding(4, 3, 4, 3);
             dtpTuNgay.Name = "dtpTuNgay";
@@ -83,6 +88,8 @@ namespace DoAnNhom3
             // 
             // dtpDenNgay
             // 
+            dtpDenNgay.Anchor = AnchorStyles.None;
+            dtpDenNgay.Location = new Point(426, 116);
             dtpDenNgay.Location = new Point(290, 120);
             dtpDenNgay.Margin = new Padding(4, 3, 4, 3);
             dtpDenNgay.Name = "dtpDenNgay";
@@ -93,6 +100,7 @@ namespace DoAnNhom3
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(426, 88);
             label4.Location = new Point(290, 92);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
@@ -104,6 +112,7 @@ namespace DoAnNhom3
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(477, 289);
             label5.Location = new Point(290, 321);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
@@ -115,6 +124,7 @@ namespace DoAnNhom3
             // dgvBaoCao
             // 
             dgvBaoCao.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvBaoCao.Location = new Point(224, 325);
             dgvBaoCao.Location = new Point(51, 345);
             dgvBaoCao.Margin = new Padding(4, 3, 4, 3);
             dgvBaoCao.Name = "dgvBaoCao";
@@ -126,6 +136,8 @@ namespace DoAnNhom3
             // 
             rdoNgay.AutoSize = true;
             rdoNgay.Checked = true;
+            rdoNgay.Font = new Font("Times New Roman", 11.25F);
+            rdoNgay.Location = new Point(173, 159);
             rdoNgay.Location = new Point(37, 159);
             rdoNgay.Margin = new Padding(4, 3, 4, 3);
             rdoNgay.Name = "rdoNgay";
@@ -138,6 +150,8 @@ namespace DoAnNhom3
             // rdoThang
             // 
             rdoThang.AutoSize = true;
+            rdoThang.Font = new Font("Times New Roman", 11.25F);
+            rdoThang.Location = new Point(173, 195);
             rdoThang.Location = new Point(37, 195);
             rdoThang.Margin = new Padding(4, 3, 4, 3);
             rdoThang.Name = "rdoThang";
@@ -148,6 +162,12 @@ namespace DoAnNhom3
             // 
             // btnThongKe
             // 
+            btnThongKe.Anchor = AnchorStyles.None;
+            btnThongKe.BackColor = SystemColors.MenuHighlight;
+            btnThongKe.FlatAppearance.BorderSize = 0;
+            btnThongKe.FlatStyle = FlatStyle.Flat;
+            btnThongKe.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnThongKe.Location = new Point(338, 564);
             btnThongKe.Location = new Point(315, 238);
             btnThongKe.Margin = new Padding(4, 3, 4, 3);
             btnThongKe.Name = "btnThongKe";
@@ -160,6 +180,8 @@ namespace DoAnNhom3
             // lblTongDoanhThu
             // 
             lblTongDoanhThu.AutoSize = true;
+            lblTongDoanhThu.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTongDoanhThu.Location = new Point(173, 243);
             lblTongDoanhThu.Location = new Point(33, 238);
             lblTongDoanhThu.Margin = new Padding(4, 0, 4, 0);
             lblTongDoanhThu.Name = "lblTongDoanhThu";
@@ -170,6 +192,12 @@ namespace DoAnNhom3
             // 
             // btnQuayLai
             // 
+            btnQuayLai.Anchor = AnchorStyles.None;
+            btnQuayLai.BackColor = Color.MediumTurquoise;
+            btnQuayLai.FlatAppearance.BorderSize = 0;
+            btnQuayLai.FlatStyle = FlatStyle.Flat;
+            btnQuayLai.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnQuayLai.Location = new Point(488, 564);
             btnQuayLai.Location = new Point(465, 238);
             btnQuayLai.Name = "btnQuayLai";
             btnQuayLai.Size = new Size(75, 23);
@@ -177,6 +205,20 @@ namespace DoAnNhom3
             btnQuayLai.Text = "Quay Lại";
             btnQuayLai.UseVisualStyleBackColor = true;
             btnQuayLai.Click += btnQuayLai_Click;
+            // 
+            // button1
+            // 
+            /*button1.Anchor = AnchorStyles.None;
+            button1.BackColor = Color.MediumTurquoise;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.Location = new Point(633, 564);
+            button1.Name = "button1";
+            button1.Size = new Size(97, 34);
+            button1.TabIndex = 17;
+            button1.Text = "Xuất excel";
+            button1.UseVisualStyleBackColor = false;*/
             // 
             // BaoCaoThongKe
             // 
@@ -196,6 +238,7 @@ namespace DoAnNhom3
             Controls.Add(label1);
             Margin = new Padding(4, 3, 4, 3);
             Name = "BaoCaoThongKe";
+            Size = new Size(1081, 618);
             Size = new Size(740, 563);
             ((System.ComponentModel.ISupportInitialize)dgvBaoCao).EndInit();
             ResumeLayout(false);
