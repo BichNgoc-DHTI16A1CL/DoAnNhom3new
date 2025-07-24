@@ -10,6 +10,6 @@ namespace DoAnNhom3.Model
     {
         public string TenMon { get; set; }
         public decimal GiaTien { get; set; }
-        public Image HinhAnh { get; set; }
+        public string HinhAnh { get; set; }
     }
 }

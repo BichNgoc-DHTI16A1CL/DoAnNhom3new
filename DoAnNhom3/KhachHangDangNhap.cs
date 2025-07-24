@@ -9,105 +9,109 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DoAnNhom3.QuanLy;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace DoAnNhom3
 {
     public partial class KhachHangDangNhap : Form
     {
+        private ucMenuMonAn ucMenu;
+        private uctaoDH ucDon;
         public KhachHangDangNhap()
         {
             InitializeComponent();
-            Load += KhachHangDangNhap_Load;
+            ucMenu = new ucMenuMonAn();
+            ucDon = new uctaoDH();
+
+            ucMenu.Dock = DockStyle.Fill;
+            ucDon.Dock = DockStyle.Fill;
+
+
+            panelkhachhang.Controls.Add(ucMenu);
+            panelkhachhang.Controls.Add(ucDon);
+
+            ucMenu.Show();
+            ucDon.Hide();
         }
-        private ucDonHang ucDonHang = new ucDonHang();
+
         private void baoCaoThongKe1_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void KhachHangDangNhap_Load(object sender, EventArgs e)
         {
+            ucDon = new uctaoDH();
+            ucDon.Visible = false;
+            ucDon.Dock = DockStyle.Fill;
+            panelkhachhang.Controls.Add(ucDon);
+
+            LoadMenu(); // Hiển thị danh sách món ăn
+        }
+        public void LoadMenu()
+        {
+            flowLayoutPanel1.Controls.Clear();
             string sql = "SELECT TenMon, GiaTien, HinhAnh FROM MonAn";
-            DataTable dt = Database.GetData(sql); // Giả sử bạn có sẵn class Database với hàm GetData
+            DataTable dt = Database.GetData(sql);
 
             foreach (DataRow row in dt.Rows)
             {
                 string ten = row["TenMon"].ToString();
                 decimal gia = Convert.ToDecimal(row["GiaTien"]);
-                string fileAnh = row["HinhAnh"].ToString();
-
-                Image img = Image.FromFile(Path.Combine(Application.StartupPath, "HinhAnh", fileAnh));
+                string hinh = row["HinhAnh"].ToString();
 
                 ucMonAn mon = new ucMonAn();
-                mon.SetData(ten, gia, fileAnh);
+                mon.SetData(ten, gia, hinh);
 
                 mon.MuaNgayClicked += (s, ev) =>
                 {
-                    GioHangService.DanhSachMon.Add(ev);
-
-                    // 2. Gọi cập nhật danh sách món trong giỏ hàng
-                    //ucDonHang.LoadGioHang();  // tạo phương thức này ở dưới
-
-                    // 3. Hiển thị ucDonHang
-                    panelkhachhang.Controls.Clear();
-                    panelkhachhang.Controls.Add(ucDonHang);
-
-                    ucMenu = new ucMenuMonAn();
-                    panelkhachhang.Controls.Add(ucMenu);
-                };
-
-                // Gán sự kiện khi nhấn nút giỏ hàng
-                /*mon.ThemVaoGioHang += (s, ev) =>
-                {
-                    // Thêm vào giỏ
-                    GioHangService.DanhSachMon.Add(new MonAnEventArgs
+                    // 1. Tạo món ăn từ dữ liệu được click
+                    MonAn monDuocChon = new MonAn
                     {
                         TenMon = ev.TenMon,
                         GiaTien = ev.GiaTien,
-                        HinhAnh = ev.HinhAnh
+                        HinhAnh = ev.HinhAnh,
+                        SoLuong = 1
+                    };
+
+                    // 2. Tạo uctaoDH
+                    uctaoDH ucdonhang = new uctaoDH();
+                    ucdonhang.Dock = DockStyle.Fill;
+
+                    // 3. Gọi hàm hiển thị món ăn lên flpGioHang
+                    ucdonhang.HienThiMonAn(monDuocChon);
+
+                    // 4. Hiển thị uctaoDH và ẩn flowLayoutPanel1
+                    flowLayoutPanel1.Hide();
+                    panelkhachhang.Controls.Add(ucdonhang);
+                    ucdonhang.BringToFront();
+                };
+
+                mon.ThemVaoGioHang += (s, ev) =>
+                {
+                    // Thêm món vào giỏ
+                    GioHangService.DanhSachMon.Add(new MonAn
+                    {
+                        TenMon = ev.TenMon,
+                        GiaTien = ev.GiaTien,
+                        HinhAnh = ev.HinhAnh,
+                        SoLuong = 1
                     });
 
+                    // Hiển thị giỏ hàng
+                    ucDon.HienThiGioHang();
+
+                    // Chuyển view
+                    ucMenu.Hide();
+                    ucDon.Show();
                     // Chuyển sang ucDonHang
                     ucDonHang donHang = new ucDonHang();
                     panelkhachhang.Controls.Clear();
                     panelkhachhang.Controls.Add(donHang);
-                };*/
+                };
 
                 flowLayoutPanel1.Controls.Add(mon);
-
             }
-        }
-        public void LoadGioHang()
-        {
-            flowLayoutPanel1.Controls.Clear();
-            foreach (var mon in GioHangService.DanhSachMon)
-            {
-                themdonhang uc = new themdonhang();
-                uc.SetData(mon.TenMon, mon.GiaTien, mon.HinhAnh);
-                flowLayoutPanel1.Controls.Add(uc);
-            }
-        }
-        private void Mon_MuaNgayClicked(object sender, EventArgs e)
-        {
-            flowLayoutPanel1.Controls.Clear();
-
-            ucDonHang donHang = new ucDonHang();
-            donHang.Dock = DockStyle.Fill;
-
-            flowLayoutPanel1.Controls.Add(donHang);
-        }
-        private ucMenuMonAn ucMenu;
-
-        public void HienMenu()
-        {
-            panelkhachhang.Controls.Clear();
-            panelkhachhang.Controls.Add(ucMenu);
-            ucMenu.Dock = DockStyle.Fill;
-        }
-
-        private void btqlitaikhoanKH_Click(object sender, EventArgs e)
-        {
 
         }
+       
     }
 }

@@ -28,49 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
+            ptbanhmonan = new PictureBox();
             txbtenmonan = new TextBox();
             txbdongia = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            txbslg = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)ptbanhmonan).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox1
+            // ptbanhmonan
             // 
-            pictureBox1.Location = new Point(0, 1);
-            pictureBox1.Margin = new Padding(4, 3, 4, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(144, 97);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            ptbanhmonan.Location = new Point(0, 1);
+            ptbanhmonan.Margin = new Padding(4, 3, 4, 3);
+            ptbanhmonan.Name = "ptbanhmonan";
+            ptbanhmonan.Size = new Size(144, 97);
+            ptbanhmonan.TabIndex = 0;
+            ptbanhmonan.TabStop = false;
             // 
             // txbtenmonan
             // 
-            txbtenmonan.Location = new Point(158, 23);
+            txbtenmonan.Location = new Point(161, 8);
             txbtenmonan.Margin = new Padding(4, 3, 4, 3);
             txbtenmonan.Name = "txbtenmonan";
-            txbtenmonan.Size = new Size(200, 23);
+            txbtenmonan.Size = new Size(144, 23);
             txbtenmonan.TabIndex = 1;
             // 
             // txbdongia
             // 
-            txbdongia.Location = new Point(158, 53);
+            txbdongia.Location = new Point(161, 37);
             txbdongia.Margin = new Padding(4, 3, 4, 3);
             txbdongia.Name = "txbdongia";
-            txbdongia.Size = new Size(200, 23);
+            txbdongia.Size = new Size(144, 23);
             txbdongia.TabIndex = 2;
+            // 
+            // txbslg
+            // 
+            txbslg.Location = new Point(161, 66);
+            txbslg.Margin = new Padding(4, 3, 4, 3);
+            txbslg.Name = "txbslg";
+            txbslg.Size = new Size(90, 23);
+            txbslg.TabIndex = 3;
             // 
             // themdonhang
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(txbslg);
             Controls.Add(txbdongia);
             Controls.Add(txbtenmonan);
-            Controls.Add(pictureBox1);
+            Controls.Add(ptbanhmonan);
             Margin = new Padding(4, 3, 4, 3);
             Name = "themdonhang";
             Size = new Size(376, 99);
             Load += themdonhang_Load_1;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ptbanhmonan).EndInit();
             ResumeLayout(false);
             PerformLayout();
 
@@ -78,8 +88,9 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox ptbanhmonan;
         private System.Windows.Forms.TextBox txbtenmonan;
         private System.Windows.Forms.TextBox txbdongia;
+        private TextBox txbslg;
     }
 }

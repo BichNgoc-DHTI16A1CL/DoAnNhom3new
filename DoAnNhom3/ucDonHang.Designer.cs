@@ -53,9 +53,8 @@
             btthemvaogiohang.Name = "btthemvaogiohang";
             btthemvaogiohang.Size = new Size(103, 56);
             btthemvaogiohang.TabIndex = 34;
-            btthemvaogiohang.Text = "Thêm vào giỏ hàng";
+            btthemvaogiohang.Text = "Quay lại menu";
             btthemvaogiohang.UseVisualStyleBackColor = true;
-
             // 
             // panel1
             // 
@@ -86,6 +85,7 @@
             btthanhtoanKH.TabIndex = 39;
             btthanhtoanKH.Text = "Thanh toán";
             btthanhtoanKH.UseVisualStyleBackColor = true;
+            btthanhtoanKH.Click += btthanhtoanKH_Click_1;
             // 
             // ucDonHang
             // 
@@ -96,6 +96,7 @@
             Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Name = "ucDonHang";
             Size = new Size(692, 488);
+            Load += ucDonHang_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

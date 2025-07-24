@@ -11,7 +11,6 @@ namespace DoAnNhom3.Model
         public string TenMon { get; set; }
         public decimal GiaTien { get; set; }
         public string HinhAnh { get; set; }
-
-        public int SoLuong { get; set; } 
+        public int SoLuong { get; set; }
     }
 }

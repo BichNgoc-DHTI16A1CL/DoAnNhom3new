@@ -64,6 +64,7 @@
             ptbanhmonan.Margin = new Padding(4, 3, 4, 3);
             ptbanhmonan.Name = "ptbanhmonan";
             ptbanhmonan.Size = new Size(178, 127);
+            ptbanhmonan.SizeMode = PictureBoxSizeMode.StretchImage;
             ptbanhmonan.TabIndex = 0;
             ptbanhmonan.TabStop = false;
             // 
@@ -77,7 +78,7 @@
             btgiohang.Size = new Size(41, 36);
             btgiohang.TabIndex = 22;
             btgiohang.UseVisualStyleBackColor = true;
-//            btgiohang.Click += btgiohang_Click;
+            btgiohang.Click += btgiohang_Click;
             // 
             // btmuangay
             // 

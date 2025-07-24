@@ -8,6 +8,6 @@ namespace DoAnNhom3.Model
 {
     public static class GioHangService
     {
-        public static List<MonAnEventArgs> DanhSachMon = new List<MonAnEventArgs>();
+        public static List<MonAn> DanhSachMon { get; set; } = new List<MonAn>();
     }
 }
