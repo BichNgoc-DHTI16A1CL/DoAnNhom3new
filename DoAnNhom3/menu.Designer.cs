@@ -36,6 +36,7 @@
             btqlkhachhang = new Button();
             panel1 = new Panel();
         //    button2 = new Button();
+            button2 = new Button();
             panelMain = new Panel();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -115,6 +116,7 @@
             // panel1
             // 
         //    panel1.Controls.Add(button2);
+            panel1.Controls.Add(button2);
             panel1.Controls.Add(btqlnhanvien);
             panel1.Controls.Add(btqlkhachhang);
             panel1.Controls.Add(btqldanhmuc);

@@ -15,6 +15,7 @@ namespace DoAnNhom3
     {
         private ucMenuMonAn ucMenu;
         private uctaoDH ucDon;
+        
         public KhachHangDangNhap()
         {
             InitializeComponent();
