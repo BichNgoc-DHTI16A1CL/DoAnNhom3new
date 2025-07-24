@@ -34,7 +34,7 @@ namespace DoAnNhom3
         {
             string tenDN = txbtendangnhap.Text.Trim();
             string matKhau = txbmatkhau.Text.Trim();
-
+            string sdtKH;
             if (string.IsNullOrEmpty(tenDN) || string.IsNullOrEmpty(matKhau))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin.");
@@ -53,6 +53,7 @@ namespace DoAnNhom3
             if (dt.Rows.Count > 0)
             {
                 MessageBox.Show("Đăng nhập thành công!");
+                sdtKH = dt.Rows[0]["SoDienThoai"].ToString();
 
                 // Ẩn form hiện tại và mở menu
                 this.Hide();
@@ -68,7 +69,7 @@ namespace DoAnNhom3
                 }
                 else
                 {
-                    KhachHangDangNhap K = new KhachHangDangNhap();
+                    KhachHangDangNhap K = new KhachHangDangNhap(sdtKH);
                     K.Show();
                 }
 

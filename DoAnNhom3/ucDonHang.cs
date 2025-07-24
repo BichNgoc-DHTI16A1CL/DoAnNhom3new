@@ -115,7 +115,7 @@ namespace DoAnNhom3
         private void btquaylai_Click(object sender, EventArgs e)
         {
             parentForm.panelkhachhang.Controls.Clear();
-            parentForm.LoadMenu();
+            //parentForm.LoadMenu();
         }
 
         private void btthanhtoanKH_Click_1(object sender, EventArgs e)

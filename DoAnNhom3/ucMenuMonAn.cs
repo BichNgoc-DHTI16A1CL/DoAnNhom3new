@@ -18,26 +18,38 @@ namespace DoAnNhom3
         public ucMenuMonAn()
         {
             InitializeComponent();
+            UC_Menu_Load();
         }
-        /*public event EventHandler<MonAnEventArgs> MonDuocThemVaoGio;
-        private void ucMenuMonAn_Load(object sender, EventArgs e)
+
+        private void flpgiohang_Paint(object sender, PaintEventArgs e)
         {
-            string sql = "SELECT TenMon, GiaTien, HinhAnh FROM MonAn";
-            DataTable dt = Database.GetData(sql);
 
-             foreach (DataRow row in dt.Rows)
+        }
+        //object sender, EventArgs e
+        private void UC_Menu_Load()
+        {
+            string query = "SELECT MaMon, TenMon, GiaTien, HinhAnh FROM MonAn";
+            DataTable dt = Database.GetData(query);
+
+            flpgiohang.Controls.Clear();
+
+            foreach (DataRow row in dt.Rows)
             {
-                ucMonAn mon = new ucMonAn();
-                mon.SetData(row["TenMon"].ToString(), Convert.ToDecimal(row["GiaTien"]), row["HinhAnh"].ToString());
+                string ma = row["MaMon"].ToString();
+                string ten = row["TenMon"].ToString();
+                decimal gia = Convert.ToDecimal(row["GiaTien"]);
+                string tenAnh = row["HinhAnh"].ToString();
 
-                // Gán sự kiện từ từng ucMonAn
-                mon.ThemVaoGioHang += (s, e) => MonDuocThemVaoGio?.Invoke(this, e);
-                mon.MuaNgayClicked += (s, e) => MonDuocThemVaoGio?.Invoke(this, e);
+                string duongDanAnh = Path.Combine(Application.StartupPath, "HinhAnh", tenAnh);
 
-                flpgiohang.Controls.Add(mon);
+                Image anh = File.Exists(duongDanAnh)
+                    ? Image.FromFile(duongDanAnh)
+                    : null; // ảnh mặc định nếu không có
+
+                ucMonAn item = new ucMonAn(ma, ten, gia, anh);
+                flpgiohang.Controls.Add(item);
             }
         }
-        */
 
     }
 }

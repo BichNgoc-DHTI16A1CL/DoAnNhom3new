@@ -1,6 +1,6 @@
 ﻿namespace DoAnNhom3
 {
-    partial class ucXemDonHang
+    partial class ucXemLSDonHang
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            dgvDonHang = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dgvDonHang).BeginInit();
+            dgvLichSu = new DataGridView();
+            lblTongTien = new Label();
+            ((System.ComponentModel.ISupportInitialize)dgvLichSu).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -42,24 +43,34 @@
             label1.TabIndex = 0;
             label1.Text = "Danh sách đơn hàng";
             // 
-            // dgvDonHang
+            // dgvLichSu
             // 
-            dgvDonHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDonHang.Location = new Point(80, 135);
-            dgvDonHang.Name = "dgvDonHang";
-            dgvDonHang.Size = new Size(624, 233);
-            dgvDonHang.TabIndex = 1;
-            dgvDonHang.CellContentClick += dgvDonHang_CellContentClick;
+            dgvLichSu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvLichSu.Location = new Point(80, 135);
+            dgvLichSu.Name = "dgvLichSu";
+            dgvLichSu.Size = new Size(624, 272);
+            dgvLichSu.TabIndex = 1;
+            dgvLichSu.CellContentClick += dgvDonHang_CellContentClick;
+            // 
+            // lblTongTien
+            // 
+            lblTongTien.AutoSize = true;
+            lblTongTien.Location = new Point(309, 439);
+            lblTongTien.Name = "lblTongTien";
+            lblTongTien.Size = new Size(38, 15);
+            lblTongTien.TabIndex = 2;
+            lblTongTien.Text = "label2";
             // 
             // ucXemDonHang
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(dgvDonHang);
+            Controls.Add(lblTongTien);
+            Controls.Add(dgvLichSu);
             Controls.Add(label1);
             Name = "ucXemDonHang";
             Size = new Size(770, 548);
-            ((System.ComponentModel.ISupportInitialize)dgvDonHang).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvLichSu).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -67,6 +78,7 @@
         #endregion
 
         private Label label1;
-        private DataGridView dgvDonHang;
+        private DataGridView dgvLichSu;
+        private Label lblTongTien;
     }
 }
