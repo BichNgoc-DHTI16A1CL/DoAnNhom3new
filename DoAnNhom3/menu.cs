@@ -16,6 +16,7 @@ namespace DoAnNhom3
         {
             InitializeComponent();
         }
+        // Đổi từ NhanVien ➝ Menu
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -34,14 +35,7 @@ namespace DoAnNhom3
 
         private void btqldanhmuc_Click(object sender, EventArgs e)
         {
-            panelMain.Controls.Clear();
 
-            // Tạo mới instance của UserControl
-            ChinhSuaMenu baoCaoUC = new ChinhSuaMenu();
-            baoCaoUC.Dock = DockStyle.Fill; // Để tự giãn theo panel
-
-            // Thêm vào panel
-            panelMain.Controls.Add(baoCaoUC);
         }
 
         private void btbaocao_Click(object sender, EventArgs e)
