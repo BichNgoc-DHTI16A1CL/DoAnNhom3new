@@ -38,6 +38,7 @@
             panelMain = new Panel();
             panel2 = new Panel();
             panel1.SuspendLayout();
+            panelMain.SuspendLayout();
             SuspendLayout();
             // 
             // btqlnhanvien
@@ -61,29 +62,14 @@
             btbaocao.FlatAppearance.BorderSize = 0;
             btbaocao.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btbaocao.ForeColor = SystemColors.ButtonHighlight;
-            btbaocao.Location = new Point(0, 340);
-            btbaocao.Location = new Point(13, 248);
+            btbaocao.Location = new Point(1, 274);
             btbaocao.Margin = new Padding(4, 3, 4, 3);
             btbaocao.Name = "btbaocao";
-            btbaocao.Size = new Size(204, 63);
+            btbaocao.Size = new Size(204, 70);
             btbaocao.TabIndex = 1;
             btbaocao.Text = "Báo cáo thống kê";
             btbaocao.UseVisualStyleBackColor = false;
             btbaocao.Click += btbaocao_Click;
-            // 
-            // btkhuyenmai
-            // 
-           /* btkhuyenmai.BackColor = SystemColors.Highlight;
-            btkhuyenmai.FlatAppearance.BorderSize = 0;
-            btkhuyenmai.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btkhuyenmai.ForeColor = SystemColors.ButtonHighlight;
-            btkhuyenmai.Location = new Point(0, 201);
-            btkhuyenmai.Margin = new Padding(4, 3, 4, 3);
-            btkhuyenmai.Name = "btkhuyenmai";
-            btkhuyenmai.Size = new Size(204, 76);
-            btkhuyenmai.TabIndex = 2;
-            btkhuyenmai.Text = "Khuyến mãi";
-            btkhuyenmai.UseVisualStyleBackColor = false;*/
             // 
             // btkhonguyenlieu
             // 
@@ -91,8 +77,7 @@
             btkhonguyenlieu.FlatAppearance.BorderSize = 0;
             btkhonguyenlieu.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btkhonguyenlieu.ForeColor = SystemColors.ButtonHighlight;
-            btkhonguyenlieu.Location = new Point(0, 272);
-            btkhonguyenlieu.Location = new Point(13, 190);
+            btkhonguyenlieu.Location = new Point(0, 204);
             btkhonguyenlieu.Margin = new Padding(4, 3, 4, 3);
             btkhonguyenlieu.Name = "btkhonguyenlieu";
             btkhonguyenlieu.Size = new Size(204, 74);
@@ -108,7 +93,7 @@
             btqldanhmuc.FlatAppearance.BorderSize = 0;
             btqldanhmuc.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btqldanhmuc.ForeColor = Color.White;
-            btqldanhmuc.Location = new Point(0, 0);
+            btqldanhmuc.Location = new Point(1, 0);
             btqldanhmuc.Margin = new Padding(4, 3, 4, 3);
             btqldanhmuc.Name = "btqldanhmuc";
             btqldanhmuc.Size = new Size(204, 70);
@@ -141,7 +126,7 @@
             panel1.Controls.Add(btqldanhmuc);
             panel1.Controls.Add(btbaocao);
             panel1.Controls.Add(btkhonguyenlieu);
-            panel1.Location = new Point(2, 157);
+            panel1.Location = new Point(3, 157);
             panel1.Margin = new Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
             panel1.Size = new Size(204, 461);
@@ -153,11 +138,10 @@
             button2.FlatAppearance.BorderSize = 0;
             button2.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button2.ForeColor = SystemColors.ButtonHighlight;
-            button2.Location = new Point(0, 399);
-            button2.Location = new Point(13, 381);
+            button2.Location = new Point(0, 341);
             button2.Margin = new Padding(4, 3, 4, 3);
             button2.Name = "button2";
-            button2.Size = new Size(204, 62);
+            button2.Size = new Size(204, 64);
             button2.TabIndex = 7;
             button2.Text = "Đăng Xuất";
             button2.UseVisualStyleBackColor = false;
@@ -165,33 +149,36 @@
             // 
             // panelMain
             // 
-            panelMain.Dock = DockStyle.Right;
-            panelMain.Location = new Point(208, 0);
+            panelMain.Anchor = AnchorStyles.None;
+            panelMain.Controls.Add(panel1);
+            panelMain.Controls.Add(panel2);
+            panelMain.Location = new Point(0, 0);
             panelMain.Name = "panelMain";
-            panelMain.Size = new Size(847, 618);
+            panelMain.Size = new Size(1051, 618);
             panelMain.TabIndex = 7;
+            panelMain.Paint += panelMain_Paint;
             // 
             // panel2
             // 
             panel2.BackgroundImage = Properties.Resources.logo;
             panel2.BackgroundImageLayout = ImageLayout.Stretch;
-            panel2.Location = new Point(2, 0);
+            panel2.Location = new Point(3, 0);
             panel2.Name = "panel2";
             panel2.Size = new Size(204, 154);
             panel2.TabIndex = 8;
+            panel2.Paint += panel2_Paint;
             // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1055, 618);
-            Controls.Add(panel1);
-            Controls.Add(panel2);
+            ClientSize = new Size(1050, 618);
             Controls.Add(panelMain);
             Margin = new Padding(4, 3, 4, 3);
             Name = "Menu";
             Text = "Menu";
             panel1.ResumeLayout(false);
+            panelMain.ResumeLayout(false);
             ResumeLayout(false);
 
         }

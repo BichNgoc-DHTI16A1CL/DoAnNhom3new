@@ -104,5 +104,15 @@ namespace DoAnNhom3
             // Thêm vào panel
             panelMain.Controls.Add(baoCaoUC);
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelMain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

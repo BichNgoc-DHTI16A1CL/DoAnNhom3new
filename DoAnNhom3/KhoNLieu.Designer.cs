@@ -37,19 +37,20 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(277, 30);
+            label1.Font = new Font("Times New Roman", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(453, 27);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(230, 27);
+            label1.Size = new Size(270, 33);
             label1.TabIndex = 2;
             label1.Text = "Danh sách nguyên liệu";
             // 
             // dgvKhoNLieu
             // 
             dgvKhoNLieu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvKhoNLieu.BackgroundColor = SystemColors.ButtonHighlight;
             dgvKhoNLieu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvKhoNLieu.Location = new Point(136, 72);
+            dgvKhoNLieu.Location = new Point(290, 96);
             dgvKhoNLieu.Margin = new Padding(4, 3, 4, 3);
             dgvKhoNLieu.Name = "dgvKhoNLieu";
             dgvKhoNLieu.Size = new Size(543, 397);
@@ -58,7 +59,7 @@
             // 
             // btnQuayLai
             // 
-            btnQuayLai.Location = new Point(353, 499);
+            btnQuayLai.Location = new Point(525, 521);
             btnQuayLai.Name = "btnQuayLai";
             btnQuayLai.Size = new Size(75, 23);
             btnQuayLai.TabIndex = 4;
@@ -70,12 +71,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ButtonHighlight;
             Controls.Add(btnQuayLai);
             Controls.Add(dgvKhoNLieu);
             Controls.Add(label1);
             Margin = new Padding(4, 3, 4, 3);
             Name = "KhoNLieu";
-            Size = new Size(807, 563);
+            Size = new Size(1081, 618);
             ((System.ComponentModel.ISupportInitialize)dgvKhoNLieu).EndInit();
             ResumeLayout(false);
             PerformLayout();
