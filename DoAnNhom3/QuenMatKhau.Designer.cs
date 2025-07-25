@@ -65,10 +65,13 @@
             // lblTrangThai
             // 
             lblTrangThai.AutoSize = true;
+            lblTrangThai.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTrangThai.Margin = new Padding(4, 3, 4, 3);
             lblTrangThai.Location = new Point(147, 296);
             lblTrangThai.Name = "lblTrangThai";
             lblTrangThai.Size = new Size(0, 15);
-            lblTrangThai.TabIndex = 19;
+            lblTrangThai.TabIndex = 1;
+            lblTrangThai.Left = (panel1.Width - lblTrangThai.Width) / 2;
             // 
             // txbsdt
             // 
@@ -179,6 +182,7 @@
             Margin = new Padding(4, 3, 4, 3);
             Name = "QuenMatKhau";
             Text = "QuenMatKhau";
+            Load += QuenMatKhau_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
