@@ -45,6 +45,7 @@ namespace DoAnNhom3
             label4 = new Label();
             label1 = new Label();
             panelSideBar = new Panel();
+            btDangXuat = new Button();
             panel1 = new Panel();
             panel2 = new Panel();
             panelMain.SuspendLayout();
@@ -200,7 +201,6 @@ namespace DoAnNhom3
             txbsoluongmenuNV.Name = "txbsoluongmenuNV";
             txbsoluongmenuNV.Size = new Size(224, 23);
             txbsoluongmenuNV.TabIndex = 19;
-            //txbsoluongmenuNV.TextChanged += this.txbsoluongmenuNV_TextChanged;
             // 
             // txbdongiamenuNV
             // 
@@ -220,7 +220,6 @@ namespace DoAnNhom3
             label4.Size = new Size(78, 21);
             label4.TabIndex = 18;
             label4.Text = "Số lượng";
-            //label4.Click += this.label4_Click;
             // 
             // label1
             // 
@@ -235,6 +234,7 @@ namespace DoAnNhom3
             // 
             // panelSideBar
             // 
+            panelSideBar.Controls.Add(btDangXuat);
             panelSideBar.Controls.Add(panel1);
             panelSideBar.Controls.Add(bttaodonhang);
             panelSideBar.Controls.Add(btqldanhmuc);
@@ -245,6 +245,21 @@ namespace DoAnNhom3
             panelSideBar.Name = "panelSideBar";
             panelSideBar.Size = new Size(208, 670);
             panelSideBar.TabIndex = 28;
+            // 
+            // btDangXuat
+            // 
+            btDangXuat.BackColor = SystemColors.Highlight;
+            btDangXuat.FlatAppearance.BorderSize = 0;
+            btDangXuat.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btDangXuat.ForeColor = SystemColors.ButtonHighlight;
+            btDangXuat.Location = new Point(0, 535);
+            btDangXuat.Margin = new Padding(4, 3, 4, 3);
+            btDangXuat.Name = "btDangXuat";
+            btDangXuat.Size = new Size(205, 78);
+            btDangXuat.TabIndex = 27;
+            btDangXuat.Text = "Đăng Xuất";
+            btDangXuat.UseVisualStyleBackColor = false;
+            btDangXuat.Click += btDangXuat_Click;
             // 
             // panel1
             // 
@@ -303,5 +318,6 @@ namespace DoAnNhom3
         private Panel panelMainContent;
         private Panel panel1;
         private Panel panel2;
+        private Button btDangXuat;
     }
 }

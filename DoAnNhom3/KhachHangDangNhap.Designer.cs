@@ -109,10 +109,11 @@
             // 
             // panelkhachhang
             // 
-            panelkhachhang.Location = new Point(213, 5);
+            panelkhachhang.Dock = DockStyle.Right;
+            panelkhachhang.Location = new Point(213, 0);
             panelkhachhang.Margin = new Padding(4, 3, 4, 3);
             panelkhachhang.Name = "panelkhachhang";
-            panelkhachhang.Size = new Size(846, 618);
+            panelkhachhang.Size = new Size(1253, 680);
             panelkhachhang.TabIndex = 1;
             // 
             // panel2
@@ -128,7 +129,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1055, 618);
+            ClientSize = new Size(1466, 680);
             Controls.Add(panelkhachhang);
             Controls.Add(panel2);
             Controls.Add(panel1);

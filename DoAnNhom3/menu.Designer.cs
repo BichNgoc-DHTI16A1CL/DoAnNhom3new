@@ -34,7 +34,7 @@
             btqldanhmuc = new Button();
             btqlkhachhang = new Button();
             panel1 = new Panel();
-            button2 = new Button();
+            btDangXuat = new Button();
             panelMain = new Panel();
             panel2 = new Panel();
             panel1.SuspendLayout();
@@ -119,7 +119,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.Highlight;
-            panel1.Controls.Add(button2);
+            panel1.Controls.Add(btDangXuat);
             panel1.Controls.Add(btqlnhanvien);
             panel1.Controls.Add(btqlkhachhang);
             panel1.Controls.Add(btqldanhmuc);
@@ -131,19 +131,20 @@
             panel1.Size = new Size(204, 477);
             panel1.TabIndex = 6;
             // 
-            // button2
+            // btDangXuat
             // 
-            button2.BackColor = SystemColors.Highlight;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.ForeColor = SystemColors.ButtonHighlight;
-            button2.Location = new Point(-1, 399);
-            button2.Margin = new Padding(4, 3, 4, 3);
-            button2.Name = "button2";
-            button2.Size = new Size(205, 78);
-            button2.TabIndex = 7;
-            button2.Text = "Đăng Xuất";
-            button2.UseVisualStyleBackColor = false;
+            btDangXuat.BackColor = SystemColors.Highlight;
+            btDangXuat.FlatAppearance.BorderSize = 0;
+            btDangXuat.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btDangXuat.ForeColor = SystemColors.ButtonHighlight;
+            btDangXuat.Location = new Point(-1, 399);
+            btDangXuat.Margin = new Padding(4, 3, 4, 3);
+            btDangXuat.Name = "btDangXuat";
+            btDangXuat.Size = new Size(205, 78);
+            btDangXuat.TabIndex = 7;
+            btDangXuat.Text = "Đăng Xuất";
+            btDangXuat.UseVisualStyleBackColor = false;
+            btDangXuat.Click += button2_Click;
             // 
             // panelMain
             // 
@@ -191,7 +192,7 @@
         private System.Windows.Forms.Button btqlkhachhang;
         private System.Windows.Forms.Panel panel1;
         public Panel panelMain;
-        private Button button2;
+        private Button btDangXuat;
         private Panel panel2;
     }
 }
