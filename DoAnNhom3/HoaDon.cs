@@ -1,25 +1,28 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using DoAnNhom3.Model;
 using Microsoft.Data.SqlClient;
-
 
 namespace DoAnNhom3
 {
     public partial class HoaDon : UserControl
     {
         public event Action DonHangDatThanhCong;
+        public event Action HuyDonClicked;
         private List<MonAn> danhSachMon = new List<MonAn>();
         private string connectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=QuanLyBanHangOnline1;Integrated Security=True";
 
         public HoaDon()
         {
             InitializeComponent();
+            btnHuyDon.Click += (s, e) => HuyDonClicked?.Invoke();
         }
 
         private void HoaDon_Load(object sender, EventArgs e)
@@ -128,17 +131,18 @@ namespace DoAnNhom3
                     string maBCN = "BCN" + DateTime.Now.Ticks.ToString().Substring(10);
 
                     string query = @"
-                        INSERT INTO BaoCaoNgay (MaBaoCaoNgay, Ngay, MaMon, DonViTinh, SoLuong, DoanhThuNgay)
-                        VALUES (@MaBCN, @Ngay, @MaMon, @DonViTinh, @SoLuong, @DoanhThu)";
+    INSERT INTO BaoCaoNgay (MaBaoCaoNgay, Ngay, MaMon, SoLuong, DoanhThuNgay)
+    VALUES (@MaBaoCaoNgay, @Ngay, @MaMon, @SoLuong, @DoanhThuNgay)";
+
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@MaBCN", maBCN);
+                        cmd.Parameters.AddWithValue("@MaBaoCaoNgay", maBCN);
                         cmd.Parameters.AddWithValue("@Ngay", DateTime.Now.Date);
                         cmd.Parameters.AddWithValue("@MaMon", mon.MaMon);
-                        cmd.Parameters.AddWithValue("@DonViTinh", "Phần");
+                        //cmd.Parameters.AddWithValue("@DonViTinh", "Phần");
                         cmd.Parameters.AddWithValue("@SoLuong", mon.SoLuong);
-                        cmd.Parameters.AddWithValue("@DoanhThu", mon.SoLuong * mon.GiaTien);
+                        cmd.Parameters.AddWithValue("@DoanhThuNgay", mon.SoLuong * mon.GiaTien);
 
                         await cmd.ExecuteNonQueryAsync();
                     }
@@ -149,11 +153,6 @@ namespace DoAnNhom3
         public void GoiSuKienDatHangThanhCong()
         {
             DonHangDatThanhCong?.Invoke();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
 
         public string MaHoaDon => txbmahoadon.Text;

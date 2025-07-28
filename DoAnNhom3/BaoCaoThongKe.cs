@@ -40,7 +40,7 @@ namespace DoAnNhom3
             if (rdoNgay.Checked)
             {
                 query = @"
-            SELECT MaBaoCaoNgay, Ngay, MaMon, DonViTinh, SoLuong, DoanhThuNgay 
+            SELECT MaBaoCaoNgay, Ngay, MaMon, SoLuong, DoanhThuNgay 
             FROM BaoCaoNgay
             WHERE Ngay BETWEEN @TuNgay AND @DenNgay";
             }

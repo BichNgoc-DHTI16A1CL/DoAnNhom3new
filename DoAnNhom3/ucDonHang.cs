@@ -21,8 +21,8 @@ namespace DoAnNhom3
 
             btQuayVe.Click += (s, e) => QuayVeClicked?.Invoke();
             btthanhtoanKH.Click += btthanhtoanKH_Click;
+            btXoaMon.Click += btXoaMon_Click;
 
-            // Cấu hình FlowLayoutPanel
             flpgiohang.FlowDirection = FlowDirection.TopDown;
             flpgiohang.WrapContents = false;
             flpgiohang.AutoScroll = true;
@@ -108,15 +108,41 @@ namespace DoAnNhom3
                 numSL.ValueChanged += (s, e) =>
                 {
                     mon.SoLuong = (int)numSL.Value;
+                    CapNhatTongTien();
+                };
+
+                Button btnX = new Button
+                {
+                    Text = "X",
+                    ForeColor = Color.White,
+                    BackColor = Color.Red,
+                    FlatStyle = FlatStyle.Flat,
+                    Size = new Size(30, 30),
+                    Location = new Point(460, 5)
+                };
+
+                btnX.Click += (s, e) =>
+                {
+                    gioHang.RemoveAll(m => m.MaMon == mon.MaMon);
+                    HienThiGioHang();
                 };
 
                 panel.Controls.Add(pic);
                 panel.Controls.Add(txbTen);
                 panel.Controls.Add(txbGia);
                 panel.Controls.Add(numSL);
+                panel.Controls.Add(btnX);
 
                 flpgiohang.Controls.Add(panel);
             }
+
+            CapNhatTongTien();
+        }
+
+        private void CapNhatTongTien()
+        {
+            decimal tong = gioHang.Sum(m => m.GiaTien * m.SoLuong);
+            lblTongTien.Text = "Tổng tiền: " + tong.ToString("N0") + " VNĐ";
         }
 
         private void btthanhtoanKH_Click(object sender, EventArgs e)
@@ -144,9 +170,13 @@ namespace DoAnNhom3
             ThanhToanClicked?.Invoke(new List<MonAn>(gioHang));
         }
 
+        private void btXoaMon_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Bạn có thể nhấn nút \"X\" đỏ trên mỗi món để xoá từng món trong giỏ hàng.", "Thông báo");
+        }
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
         }
     }
 }

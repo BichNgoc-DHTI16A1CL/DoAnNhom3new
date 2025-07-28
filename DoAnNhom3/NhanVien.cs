@@ -27,7 +27,8 @@ namespace DoAnNhom3
             bttaodonhang.Click += bttaodonhang_Click;
             btqldanhmuc.Click += btqldanhmuc_Click;
             btqldonhang.Click += btqldonhang_Click;
-            button3.Click += button3_Click;
+            btthongke.Click += button3_Click;
+            btDangXuat.Click += btDangXuat_Click;
         }
 
         private void NhanVien_Load(object sender, EventArgs e)
@@ -72,6 +73,13 @@ namespace DoAnNhom3
                     ucQLDonHangControl.Reload();
                     panelMain.Controls.Clear();
                     panelMain.Controls.Add(panelContent);
+                    panelMain.Controls.Add(panelSideBar);
+                };
+                hoaDonControl.HuyDonClicked += () =>
+                {
+                    panelMain.Controls.Clear();
+                    panelMain.Controls.Add(ucDonHangControl);
+                    // hoặc ucDonHangControl nếu muốn quay lại đơn hàng
                     panelMain.Controls.Add(panelSideBar);
                 };
 
@@ -191,7 +199,6 @@ namespace DoAnNhom3
             panelMain.Controls.Add(panelSideBar);
         }
 
-        // ✅ Hàm lưu hóa đơn + gọi thêm Báo cáo ngày
         private async Task LuuHoaDonAsync(List<MonAn> danhSachMon, string sdtKhach)
         {
             string maHD = "HD" + DateTime.Now.Ticks.ToString().Substring(10);
@@ -206,7 +213,6 @@ namespace DoAnNhom3
 
                 try
                 {
-                    // Lưu hóa đơn
                     SqlCommand cmd1 = new SqlCommand(query1, conn, tran);
                     cmd1.Parameters.AddWithValue("@MaHoaDon", maHD);
                     cmd1.Parameters.AddWithValue("@NgayLap", DateTime.Now);
@@ -214,7 +220,6 @@ namespace DoAnNhom3
                     cmd1.Parameters.AddWithValue("@MaNV", "NV01");
                     await cmd1.ExecuteNonQueryAsync();
 
-                    // Lưu chi tiết hóa đơn
                     foreach (var mon in danhSachMon)
                     {
                         SqlCommand cmd2 = new SqlCommand(query2, conn, tran);
@@ -226,14 +231,9 @@ namespace DoAnNhom3
                         await cmd2.ExecuteNonQueryAsync();
                     }
 
-                    // Commit trước khi thêm báo cáo để tránh deadlock
                     tran.Commit();
                     MessageBox.Show("Đặt hàng thành công!");
-
-                    // Gọi hàm thêm báo cáo ngày
                     await ThemBaoCaoNgayAsync(danhSachMon, DateTime.Now);
-
-                    // Gọi event hoàn tất
                     hoaDonControl?.GoiSuKienDatHangThanhCong();
                 }
                 catch (Exception ex)
@@ -244,12 +244,11 @@ namespace DoAnNhom3
             }
         }
 
-
         private async Task ThemBaoCaoNgayAsync(List<MonAn> danhSachMon, DateTime ngay)
         {
             string query = @"
-        INSERT INTO BaoCaoNgay (MaBaoCaoNgay, Ngay, MaMon, DonViTinh, SoLuong, DoanhThuNgay)
-        VALUES (@MaBaoCaoNgay, @Ngay, @MaMon, @DonViTinh, @SoLuong, @DoanhThuNgay)";
+                INSERT INTO BaoCaoNgay (MaBaoCaoNgay, Ngay, MaMon, SoLuong, DoanhThuNgay)
+                VALUES (@MaBaoCaoNgay, @Ngay, @MaMon, @SoLuong, @DoanhThuNgay)";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -264,7 +263,7 @@ namespace DoAnNhom3
                         cmd.Parameters.AddWithValue("@MaBaoCaoNgay", maBaoCao);
                         cmd.Parameters.AddWithValue("@Ngay", ngay.Date);
                         cmd.Parameters.AddWithValue("@MaMon", mon.MaMon);
-                        cmd.Parameters.AddWithValue("@DonViTinh", "Phần"); // hoặc lấy từ DB nếu có
+                        //cmd.Parameters.AddWithValue("@DonViTinh", "Phần");
                         cmd.Parameters.AddWithValue("@SoLuong", mon.SoLuong);
                         cmd.Parameters.AddWithValue("@DoanhThuNgay", mon.SoLuong * mon.GiaTien);
 
@@ -274,18 +273,16 @@ namespace DoAnNhom3
             }
         }
 
-        private void cbbTenmonmenuNV_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-        
-
         private void btDangXuat_Click(object sender, EventArgs e)
         {
             this.Close();
             DangNhap DN = new DangNhap();
             DN.Show();
         }
+
+        private void cbbTenmonmenuNV_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Optional: handle if needed
+        }
     }
 }
-
