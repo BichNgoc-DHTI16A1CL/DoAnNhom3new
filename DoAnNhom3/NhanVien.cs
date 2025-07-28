@@ -1,10 +1,11 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using DoAnNhom3.Model;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DoAnNhom3.Model;
 
 namespace DoAnNhom3
 {
@@ -16,18 +17,15 @@ namespace DoAnNhom3
         private ucDonHang ucDonHangControl;
         private HoaDon hoaDonControl;
         private QuanLiDonHang ucQLDonHangControl;
-        private ucBaoCaoThongKe ucBaoCaoControl;
 
         public NhanVien()
         {
             InitializeComponent();
-            this.Load += NhanVien_Load;
+            Load += NhanVien_Load;
 
             dgvmenuNV.SelectionChanged += dgvmenuNV_SelectionChanged;
             bttaodonhang.Click += bttaodonhang_Click;
-            btqldanhmuc.Click += btqldanhmuc_Click;
             btqldonhang.Click += btqldonhang_Click;
-            btthongke.Click += button3_Click;
             btDangXuat.Click += btDangXuat_Click;
         }
 
@@ -36,17 +34,11 @@ namespace DoAnNhom3
             LoadMonAn();
 
             panelMain.Controls.Clear();
-            panelSideBar.Dock = DockStyle.Left;
-            panelContent.Dock = DockStyle.Fill;
-
             panelMain.Controls.Add(panelContent);
             panelMain.Controls.Add(panelSideBar);
 
             ucDonHangControl = new ucDonHang();
             ucDonHangControl.Dock = DockStyle.Fill;
-
-            ucQLDonHangControl = new QuanLiDonHang();
-            ucQLDonHangControl.Dock = DockStyle.Fill;
 
             ucDonHangControl.QuayVeClicked += () =>
             {
@@ -55,31 +47,35 @@ namespace DoAnNhom3
                 panelMain.Controls.Add(panelSideBar);
             };
 
-            ucDonHangControl.ThanhToanClicked += async (dsMon) =>
+            ucDonHangControl.ThanhToanClicked += dsMon =>
             {
+                string maHD = "HD" + DateTime.Now.Ticks.ToString().Substring(10);
+                string sdtKH = "0900000001";
+                string tenKH = "Khách lẻ";
+                string diaChiKH = "Không rõ";
+
                 hoaDonControl = new HoaDon();
                 hoaDonControl.Dock = DockStyle.Fill;
+                hoaDonControl.SetData(dsMon, maHD, DateTime.Now, tenKH, sdtKH, diaChiKH);
 
-                string sdtKH = "0900000001";
-                hoaDonControl.SetData(dsMon, sdtKH);
-
-                hoaDonControl.BatSuKienDatHang(async (s, e) =>
+                hoaDonControl.DonHangDatThanhCong += async (monList, sdt) =>
                 {
-                    await LuuHoaDonAsync(dsMon, sdtKH);
-                });
+                    await LuuHoaDonAsync(monList, sdt);
+                    ucQLDonHangControl?.Reload();
 
-                hoaDonControl.DonHangDatThanhCong += () =>
-                {
-                    ucQLDonHangControl.Reload();
+                    var inDialog = MessageBox.Show("Bạn có muốn in hóa đơn?", "In hóa đơn", MessageBoxButtons.YesNo);
+                    if (inDialog == DialogResult.Yes)
+                        hoaDonControl.InHoaDon();
+
                     panelMain.Controls.Clear();
                     panelMain.Controls.Add(panelContent);
                     panelMain.Controls.Add(panelSideBar);
                 };
+
                 hoaDonControl.HuyDonClicked += () =>
                 {
                     panelMain.Controls.Clear();
-                    panelMain.Controls.Add(ucDonHangControl);
-                    // hoặc ucDonHangControl nếu muốn quay lại đơn hàng
+                    panelMain.Controls.Add(panelContent);
                     panelMain.Controls.Add(panelSideBar);
                 };
 
@@ -100,14 +96,15 @@ namespace DoAnNhom3
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
                 {
-                    DataTable table = new DataTable();
-                    adapter.Fill(table);
+                    conn.Open();
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
 
-                    dgvmenuNV.DataSource = table;
+                    dgvmenuNV.DataSource = dt;
                     dgvmenuNV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
                     cbbTenmonmenuNV.Items.Clear();
-                    foreach (DataRow row in table.Rows)
+                    foreach (DataRow row in dt.Rows)
                     {
                         string tenMon = row["TenMon"].ToString();
                         if (!cbbTenmonmenuNV.Items.Contains(tenMon))
@@ -117,7 +114,7 @@ namespace DoAnNhom3
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tải món ăn: " + ex.Message);
+                MessageBox.Show("Lỗi tải dữ liệu món ăn: " + ex.Message);
             }
         }
 
@@ -126,7 +123,6 @@ namespace DoAnNhom3
             if (dgvmenuNV.SelectedRows.Count > 0)
             {
                 var row = dgvmenuNV.SelectedRows[0];
-
                 monAnDangChon = new MonAn
                 {
                     MaMon = row.Cells["MaMon"].Value.ToString(),
@@ -146,7 +142,7 @@ namespace DoAnNhom3
         {
             if (monAnDangChon == null)
             {
-                MessageBox.Show("Vui lòng chọn món ăn trước!");
+                MessageBox.Show("Vui lòng chọn món ăn!");
                 return;
             }
 
@@ -157,54 +153,21 @@ namespace DoAnNhom3
             panelMain.Controls.Add(panelSideBar);
         }
 
-        private void btqldanhmuc_Click(object sender, EventArgs e)
-        {
-            LoadMonAn();
-            panelMain.Controls.Clear();
-            panelMain.Controls.Add(panelContent);
-            panelMain.Controls.Add(panelSideBar);
-        }
-
         private void btqldonhang_Click(object sender, EventArgs e)
         {
-            if (ucQLDonHangControl == null)
-            {
-                ucQLDonHangControl = new QuanLiDonHang();
-                ucQLDonHangControl.Dock = DockStyle.Fill;
-            }
-
+            ucQLDonHangControl ??= new QuanLiDonHang { Dock = DockStyle.Fill };
             ucQLDonHangControl.Reload();
+
             panelMain.Controls.Clear();
             panelMain.Controls.Add(ucQLDonHangControl);
             panelMain.Controls.Add(panelSideBar);
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (ucBaoCaoControl == null)
-            {
-                ucBaoCaoControl = new ucBaoCaoThongKe();
-                ucBaoCaoControl.Dock = DockStyle.Fill;
-
-                ucBaoCaoControl.QuayVeClicked += () =>
-                {
-                    panelMain.Controls.Clear();
-                    panelMain.Controls.Add(panelContent);
-                    panelMain.Controls.Add(panelSideBar);
-                };
-            }
-
-            panelMain.Controls.Clear();
-            panelMain.Controls.Add(ucBaoCaoControl);
-            panelMain.Controls.Add(panelSideBar);
-        }
-
-        private async Task LuuHoaDonAsync(List<MonAn> danhSachMon, string sdtKhach)
+        private async Task LuuHoaDonAsync(List<MonAn> danhSachMon, string sdtKH)
         {
             string maHD = "HD" + DateTime.Now.Ticks.ToString().Substring(10);
-
-            string query1 = "INSERT INTO HoaDon (MaHoaDon, NgayLap, SoDienThoaiKH, MaNhanVien) VALUES (@MaHoaDon, @NgayLap, @SoDT, @MaNV)";
-            string query2 = "INSERT INTO ChiTietHoaDon (MaHoaDon, MaMon, DonGia, SoLuong, ThanhTien) VALUES (@MaHoaDon, @MaMon, @DonGia, @SoLuong, @ThanhTien)";
+            string insertHD = "INSERT INTO HoaDon (MaHoaDon, NgayLap, SoDienThoaiKH, MaNhanVien) VALUES (@MaHD, @Ngay, @SDT, @MaNV)";
+            string insertCT = "INSERT INTO ChiTietHoaDon (MaHoaDon, MaMon, DonGia, SoLuong, ThanhTien) VALUES (@MaHD, @MaMon, @DonGia, @SoLuong, @ThanhTien)";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -213,28 +176,26 @@ namespace DoAnNhom3
 
                 try
                 {
-                    SqlCommand cmd1 = new SqlCommand(query1, conn, tran);
-                    cmd1.Parameters.AddWithValue("@MaHoaDon", maHD);
-                    cmd1.Parameters.AddWithValue("@NgayLap", DateTime.Now);
-                    cmd1.Parameters.AddWithValue("@SoDT", sdtKhach);
-                    cmd1.Parameters.AddWithValue("@MaNV", "NV01");
-                    await cmd1.ExecuteNonQueryAsync();
+                    SqlCommand cmdHD = new SqlCommand(insertHD, conn, tran);
+                    cmdHD.Parameters.AddWithValue("@MaHD", maHD);
+                    cmdHD.Parameters.AddWithValue("@Ngay", DateTime.Now);
+                    cmdHD.Parameters.AddWithValue("@SDT", sdtKH);
+                    cmdHD.Parameters.AddWithValue("@MaNV", "NV01");
+                    await cmdHD.ExecuteNonQueryAsync();
 
                     foreach (var mon in danhSachMon)
                     {
-                        SqlCommand cmd2 = new SqlCommand(query2, conn, tran);
-                        cmd2.Parameters.AddWithValue("@MaHoaDon", maHD);
-                        cmd2.Parameters.AddWithValue("@MaMon", mon.MaMon);
-                        cmd2.Parameters.AddWithValue("@DonGia", mon.GiaTien);
-                        cmd2.Parameters.AddWithValue("@SoLuong", mon.SoLuong);
-                        cmd2.Parameters.AddWithValue("@ThanhTien", mon.GiaTien * mon.SoLuong);
-                        await cmd2.ExecuteNonQueryAsync();
+                        SqlCommand cmdCT = new SqlCommand(insertCT, conn, tran);
+                        cmdCT.Parameters.AddWithValue("@MaHD", maHD);
+                        cmdCT.Parameters.AddWithValue("@MaMon", mon.MaMon);
+                        cmdCT.Parameters.AddWithValue("@DonGia", mon.GiaTien);
+                        cmdCT.Parameters.AddWithValue("@SoLuong", mon.SoLuong);
+                        cmdCT.Parameters.AddWithValue("@ThanhTien", mon.SoLuong * mon.GiaTien);
+                        await cmdCT.ExecuteNonQueryAsync();
                     }
 
                     tran.Commit();
                     MessageBox.Show("Đặt hàng thành công!");
-                    await ThemBaoCaoNgayAsync(danhSachMon, DateTime.Now);
-                    hoaDonControl?.GoiSuKienDatHangThanhCong();
                 }
                 catch (Exception ex)
                 {
@@ -244,45 +205,10 @@ namespace DoAnNhom3
             }
         }
 
-        private async Task ThemBaoCaoNgayAsync(List<MonAn> danhSachMon, DateTime ngay)
-        {
-            string query = @"
-                INSERT INTO BaoCaoNgay (MaBaoCaoNgay, Ngay, MaMon, SoLuong, DoanhThuNgay)
-                VALUES (@MaBaoCaoNgay, @Ngay, @MaMon, @SoLuong, @DoanhThuNgay)";
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                await conn.OpenAsync();
-
-                foreach (var mon in danhSachMon)
-                {
-                    string maBaoCao = "BCN" + DateTime.Now.Ticks.ToString().Substring(10);
-
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@MaBaoCaoNgay", maBaoCao);
-                        cmd.Parameters.AddWithValue("@Ngay", ngay.Date);
-                        cmd.Parameters.AddWithValue("@MaMon", mon.MaMon);
-                        //cmd.Parameters.AddWithValue("@DonViTinh", "Phần");
-                        cmd.Parameters.AddWithValue("@SoLuong", mon.SoLuong);
-                        cmd.Parameters.AddWithValue("@DoanhThuNgay", mon.SoLuong * mon.GiaTien);
-
-                        await cmd.ExecuteNonQueryAsync();
-                    }
-                }
-            }
-        }
-
         private void btDangXuat_Click(object sender, EventArgs e)
         {
             this.Close();
-            DangNhap DN = new DangNhap();
-            DN.Show();
-        }
-
-        private void cbbTenmonmenuNV_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Optional: handle if needed
+            new DangNhap().Show();
         }
     }
 }
