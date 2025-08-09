@@ -3,8 +3,6 @@ using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DoAnNhom3
@@ -23,66 +21,20 @@ namespace DoAnNhom3
             InitializeComponent();
             Load += NhanVien_Load;
 
-            dgvmenuNV.SelectionChanged += dgvmenuNV_SelectionChanged;
+            // Gán sự kiện click cho các nút sidebar
             bttaodonhang.Click += bttaodonhang_Click;
             btqldonhang.Click += btqldonhang_Click;
+            btthongke.Click += btthongke_Click;
+            btqldanhmuc.Click += btqldanhmuc_Click;
             btDangXuat.Click += btDangXuat_Click;
+
+            dgvmenuNV.SelectionChanged += dgvmenuNV_SelectionChanged;
         }
 
         private void NhanVien_Load(object sender, EventArgs e)
         {
             LoadMonAn();
-
-            panelMain.Controls.Clear();
-            panelMain.Controls.Add(panelContent);
-            panelMain.Controls.Add(panelSideBar);
-
-            ucDonHangControl = new ucDonHang();
-            ucDonHangControl.Dock = DockStyle.Fill;
-
-            ucDonHangControl.QuayVeClicked += () =>
-            {
-                panelMain.Controls.Clear();
-                panelMain.Controls.Add(panelContent);
-                panelMain.Controls.Add(panelSideBar);
-            };
-
-            ucDonHangControl.ThanhToanClicked += dsMon =>
-            {
-                string maHD = "HD" + DateTime.Now.Ticks.ToString().Substring(10);
-                string sdtKH = "0900000001";
-                string tenKH = "Khách lẻ";
-                string diaChiKH = "Không rõ";
-
-                hoaDonControl = new HoaDon();
-                hoaDonControl.Dock = DockStyle.Fill;
-                hoaDonControl.SetData(dsMon, maHD, DateTime.Now, tenKH, sdtKH, diaChiKH);
-
-                hoaDonControl.DonHangDatThanhCong += async (monList, sdt) =>
-                {
-                    await LuuHoaDonAsync(monList, sdt);
-                    ucQLDonHangControl?.Reload();
-
-                    var inDialog = MessageBox.Show("Bạn có muốn in hóa đơn?", "In hóa đơn", MessageBoxButtons.YesNo);
-                    if (inDialog == DialogResult.Yes)
-                        hoaDonControl.InHoaDon();
-
-                    panelMain.Controls.Clear();
-                    panelMain.Controls.Add(panelContent);
-                    panelMain.Controls.Add(panelSideBar);
-                };
-
-                hoaDonControl.HuyDonClicked += () =>
-                {
-                    panelMain.Controls.Clear();
-                    panelMain.Controls.Add(panelContent);
-                    panelMain.Controls.Add(panelSideBar);
-                };
-
-                panelMain.Controls.Clear();
-                panelMain.Controls.Add(hoaDonControl);
-                panelMain.Controls.Add(panelSideBar);
-            };
+            QuayVeMenu();
         }
 
         private void LoadMonAn()
@@ -90,13 +42,11 @@ namespace DoAnNhom3
             string query = @"SELECT m.MaMon, m.TenMon, m.GiaTien, d.SoLuong, m.HinhAnh 
                              FROM MonAn m 
                              LEFT JOIN DanhMuc_MonAn d ON m.MaMon = d.MaMon";
-
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
                 {
-                    conn.Open();
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
 
@@ -146,24 +96,61 @@ namespace DoAnNhom3
                 return;
             }
 
-            ucDonHangControl.AddItem(monAnDangChon);
+            if (ucDonHangControl == null)
+            {
+                ucDonHangControl = new ucDonHang { Dock = DockStyle.Fill };
+                ucDonHangControl.QuayVeClicked += QuayVeMenu;
+                ucDonHangControl.ThanhToanClicked += MoHoaDon;
+            }
 
-            panelMain.Controls.Clear();
-            panelMain.Controls.Add(ucDonHangControl);
-            panelMain.Controls.Add(panelSideBar);
+            ucDonHangControl.AddItem(monAnDangChon);
+            ChuyenGiaoDien(ucDonHangControl);
         }
 
         private void btqldonhang_Click(object sender, EventArgs e)
         {
             ucQLDonHangControl ??= new QuanLiDonHang { Dock = DockStyle.Fill };
             ucQLDonHangControl.Reload();
-
-            panelMain.Controls.Clear();
-            panelMain.Controls.Add(ucQLDonHangControl);
-            panelMain.Controls.Add(panelSideBar);
+            ChuyenGiaoDien(ucQLDonHangControl);
         }
 
-        private async Task LuuHoaDonAsync(List<MonAn> danhSachMon, string sdtKH)
+        private void btthongke_Click(object sender, EventArgs e)
+        {
+            var ucThongKe = new ucBaoCaoThongKe { Dock = DockStyle.Fill };
+            ChuyenGiaoDien(ucThongKe);
+        }
+
+
+
+
+            private void btqldanhmuc_Click(object sender, EventArgs e)
+        {
+            LoadMonAn();
+            panelMain.Controls.Clear();
+            panelMain.Controls.Add(panelContent);
+            panelMain.Controls.Add(panelSideBar);
+        }
+        
+
+
+        private void MoHoaDon(List<MonAn> dsMon)
+        {
+            string maHD = "HD" + DateTime.Now.Ticks.ToString().Substring(10);
+            hoaDonControl = new HoaDon { Dock = DockStyle.Fill };
+            hoaDonControl.SetData(dsMon, maHD, DateTime.Now, "Khách lẻ", "0900000001", "Không rõ");
+
+            hoaDonControl.DonHangDatThanhCong += async (monList, sdt) =>
+            {
+                await LuuHoaDonAsync(monList, sdt);
+                ucQLDonHangControl?.Reload();
+                QuayVeMenu();
+            };
+
+            hoaDonControl.HuyDonClicked += QuayVeMenu;
+            ChuyenGiaoDien(hoaDonControl);
+        }
+
+        private async System.Threading.Tasks.Task LuuHoaDonAsync(List<MonAn> danhSachMon, string sdtKH)
         {
             string maHD = "HD" + DateTime.Now.Ticks.ToString().Substring(10);
             string insertHD = "INSERT INTO HoaDon (MaHoaDon, NgayLap, SoDienThoaiKH, MaNhanVien) VALUES (@MaHD, @Ngay, @SDT, @MaNV)";
@@ -209,6 +196,20 @@ namespace DoAnNhom3
         {
             this.Close();
             new DangNhap().Show();
+        }
+
+        private void ChuyenGiaoDien(UserControl uc)
+        {
+            panelMain.Controls.Clear();
+            panelMain.Controls.Add(uc);
+            panelMain.Controls.Add(panelSideBar);
+        }
+
+        private void QuayVeMenu()
+        {
+            panelMain.Controls.Clear();
+            panelMain.Controls.Add(panelContent);
+            panelMain.Controls.Add(panelSideBar);
         }
     }
 }
